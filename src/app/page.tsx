@@ -1,9 +1,13 @@
-import Image from "next/image";
+import Programs from "@/app/components/home/programs";
+import About from "@/app/components/home/about";
 
-export default function Page() {
+export default function Home() {
   return (
-    <div className="h-[900px] text-center items-center justify-center w-full">
-        <p>Всем привет</p>
+    <div className="w-full h-full flex flex-col items-center">
+      <main className="w-3/4">
+          <About/>
+          <Programs/>
+      </main>
     </div>
   );
 }

@@ -6,12 +6,12 @@
         "Поддержка отечественных разработок ТСР"
     ];
     return (
-        <div className="p-6">
-            <p className="text-[1.5rem] font-bold">
+        <div className="px-6 my-8">
+            <p className="text-[1.5rem] text-center font-bold">
                 Программы
             </p>
-            <div className="overflow-x-auto mt-4">
-                <div className="flex flex-row md:justify-center gap-3">
+            <div className="overflow-x-auto mt-5">
+                <div className="flex flex-row gap-6 md:justify-between md:gap-1">
                     {programEntries.map((entry, index) => (
                         <ProgramCard key={index} entry={entry} />
                     ))}
@@ -20,7 +20,7 @@
         </div>
     );
 }
-
+// <div className="flex flex-row md:justify-center gap-6">
 interface ProgramCardProps {
     entry: string;
 }

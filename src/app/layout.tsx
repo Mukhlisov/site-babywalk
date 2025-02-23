@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="ru">
       <body className={`${montserratAlt.className} ${geistSans.className} antialiased text-[1.2rem]`}>
         <Navbar />
-        <div className="min-h-[900px] text-center items-center justify-center w-full">
+        <div className="min-h-[900px] flex justify-center">
           {children}
         </div>
         <Footer/>

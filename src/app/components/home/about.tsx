@@ -1,6 +1,6 @@
 ﻿export default function About() {
     return (
-        <div id="about" className="p-6">
+        <div id="about" className="px-6 my-8">
             {/*<p className="text-[1.5rem] text-left font-bold">
                 О нас
             </p>*/}

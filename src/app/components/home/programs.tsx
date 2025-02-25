@@ -10,25 +10,23 @@
             <p className="text-[1.5rem] text-center font-bold">
                 Программы
             </p>
-            <div className="overflow-x-auto mt-5">
-                <div className="flex flex-row gap-6 md:justify-between md:gap-1">
-                    {programEntries.map((entry, index) => (
-                        <ProgramCard key={index} entry={entry} />
-                    ))}
-                </div>
+            <div className="flex flex-row flex-wrap gap-4 justify-center mt-5">
+                {programEntries.map((entry, index) => (
+                    <ProgramCard key={index} entry={entry} />
+                ))}
             </div>
         </div>
     );
 }
-// <div className="flex flex-row md:justify-center gap-6">
+
 interface ProgramCardProps {
     entry: string;
 }
 
 export function ProgramCard({ entry }: ProgramCardProps) {
     return (
-        <div className="p-1 border-2 border-zinc-900 rounded-lg min-w-[180px] w-1/5">
-            <p>
+        <div className="p-1 border-2 border-zinc-900 rounded-lg min-w-[200px] w-1/5">
+            <p className="text-center">
                 {entry}
             </p>
         </div>

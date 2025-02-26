@@ -26,6 +26,7 @@ interface ProgramCardProps {
 export function ProgramCard({ entry }: ProgramCardProps) {
     return (
         <div className="p-1 border-2 border-zinc-900 rounded-lg min-w-[200px] w-1/5">
+
             <p className="text-center">
                 {entry}
             </p>

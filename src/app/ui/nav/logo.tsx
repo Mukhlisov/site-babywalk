@@ -4,9 +4,9 @@ import Link from "next/link";
 export default function BabyWalkLogo() {
     return (
         <div className="flex justify-center">
-            <Link href="/">
+            <Link href="/public">
                 <Image
-                    src="/nav-logo.png"
+                    src="/nav-logo-dark.png"
                     width={250}
                     height={75}
                     alt="АНО Движение детям"

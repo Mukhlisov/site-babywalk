@@ -21,6 +21,7 @@ body {
   background-image: url("/background.jpg");
   background-attachment: fixed;
   background-position-x: 60%;
+  background-position-y: -30%;
   background-size: cover;
   background-repeat: no-repeat;
   font-family: Arial, Helvetica, sans-serif;

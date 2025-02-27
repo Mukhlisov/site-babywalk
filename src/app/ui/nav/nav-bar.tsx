@@ -1,12 +1,12 @@
 'use client'
 
-import BabyWalkLogo from "@/app/ui/logo";
+import BabyWalkLogo from "@/app/ui/nav/logo";
 import {PcNavArea, PhoneNavArea} from "@/app/ui/nav/nav-area";
 
 export default function Navbar() {
 
     return (
-        <nav className="bg-zinc-950 text-white p-2 grid grid-cols-3 items-center">
+        <nav className="bg-zinc-50 shadow-lg shadow-zinc-400 p-2 grid grid-cols-3 items-center fixed w-full z-50">
             <div>
                 <PcNavArea/>
                 <PhoneNavArea/>

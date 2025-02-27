@@ -1,6 +1,6 @@
 ﻿export default function Footer() {
     return (
-        <footer className={"bg-zinc-950 text-zinc-50 p-2 flex flex-row min-h-[240px] items-center justify-center"}>
+        <footer className="bg-zinc-950 text-zinc-50 p-2 flex flex-row min-h-[240px] items-center justify-center">
             <div className="grid grid-rows-2 md:grid-cols-2 md:grid-rows-none gap-2 md:gap-0">
                 <div className="p-4">
                     <p className="pb-2" id="contacts">

@@ -23,8 +23,9 @@ export default function Programs() {
 
 export function ProgramCard( prop: ProgramCardProps) {
     return (
-        <div className="overflow-hidden flex flex-row min-w-[200px] bg-white">
-            <div className="overflow-hidden">
+        <div className="relative overflow-hidden flex flex-row min-w-[200px] bg-zinc-500">
+            {/* Левая карточка */}
+            <div className="relative z-10">
                 <Image
                     src={prop.src}
                     alt={prop.alt}
@@ -32,7 +33,14 @@ export function ProgramCard( prop: ProgramCardProps) {
                     height={250}
                 />
             </div>
-            <div className="-skew-x-12 w-[250px] self-stretch border-l-[10px] border-double border-lime-500 bg-white -translate-x-[40px]">
+
+            {/* Косая линия */}
+            <div className="relative z-20">
+                <div className="absolute inset-0 left-1/2 -translate-x-1/2 h-full w-[55px] bg-lime-600 -skew-x-[13deg]"></div>
+            </div>
+
+            {/* Правая карточка */}
+            <div className="w-[250px] bg-zinc-300 z-10">
                 <p className="pl-2 text-left text-wrap">
                     {prop.entry}
                 </p>

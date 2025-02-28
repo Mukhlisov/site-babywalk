@@ -1,5 +1,4 @@
-﻿import Image from "next/image";
-import Link from "next/link";
+﻿import Link from "next/link";
 import {ChevronsRight} from 'lucide-react';
 
 export default function Programs() {
@@ -29,7 +28,7 @@ export function ProgramCard( prop: ProgramCardProps) {
               href={"/programs" + prop.link}
         >
             <div className="py-2">
-                <Image className="shadow-sm shadow-zinc-950/40"
+                <img className="shadow-sm shadow-zinc-950/40"
                     src={prop.src}
                     alt={prop.alt}
                     width={250}

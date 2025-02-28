@@ -16,7 +16,7 @@ export function PcNavArea() {
                         className={clsx(
                             {
                                 "underline": path === item.at(1),
-                            }, "p-1 hover:bg-gray-700"
+                            }, "p-1 hover:bg-zinc-300 rounded-lg"
                         )}
                     >
                         {item.at(0)}
@@ -53,14 +53,12 @@ export function PhoneNavArea() {
                 ></div>
             )}
             {/* Выезжающее меню */}
-            <div
-                className={`fixed left-0 top-0 h-full w-3/4 bg-zinc-800 shadow-lg transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300`}
+            <div className={`fixed left-0 top-0 h-full w-3/4 bg-zinc-200 shadow-lg transform 
+                ${isOpen ? 'translate-x-0' : '-translate-x-full'} 
+                transition-transform duration-300`}
             >
-                <button
-                    className="p-4 text-white"
-                    onClick={() => setIsOpen(false)}
-                >
-                    <X size={24} />
+                <button className="p-4" onClick={() => setIsOpen(false)}>
+                    <X size={24} color="black"/>
                 </button>
                 <nav className="p-4">
                     {[['На главную', '/'], ['Новости', '/news'], ['Контакты', '#contacts']].map((item) => (
@@ -71,7 +69,7 @@ export function PhoneNavArea() {
                             className={clsx(
                                 {
                                     "underline": path === item.at(1),
-                                }, "block px-4 py-2 hover:bg-gray-700"
+                                }, "block px-4 py-2 hover:bg-zinc-300"
                             )}
                         >
                             {item.at(0)}

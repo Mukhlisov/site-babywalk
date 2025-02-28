@@ -1,14 +1,12 @@
 ﻿export default function About() {
     return (
-        <div id="about" className="px-6 my-8">
-            <div className="p-1 border-2 border-zinc-900 rounded-lg mt-4">
-                <p className="text-lg font-bold">
-                    АНО Движение детям
-                </p>
-                <p>
-                    Самостоятельная и достойная жизнь каждому
-                </p>
-            </div>
+        <div id="about" className="p-1 px-6 my-16">
+            <p className="text-3xl text-center font-bold p-2">
+                АНО Движение детям
+            </p>
+            <p className="text-lg text-center p-2 mt-4">
+                Самостоятельная и достойная жизнь каждому
+            </p>
         </div>
     );
 }

@@ -11,7 +11,7 @@ export default function Navbar() {
                 <PcNavArea/>
                 <PhoneNavArea/>
             </div>
-            <BabyWalkLogo />
+            <BabyWalkLogo/>
             <div/>
         </nav>
     );

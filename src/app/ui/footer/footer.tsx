@@ -22,7 +22,7 @@ export default function Footer() {
                         </div>
                         <div className="flex flex-row gap-1">
                             <Mail size={20}/>
-                            <a>Baytukova90@mail.ru</a>
+                            <a>baby_walk@mail.ru</a>
                         </div>
                     </div>
                 </div>

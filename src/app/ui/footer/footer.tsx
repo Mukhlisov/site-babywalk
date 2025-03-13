@@ -1,5 +1,5 @@
-﻿import {Phone, Mail} from 'lucide-react'
-import {Telegram} from "@/app/ui/footer/custom-icons";
+﻿import {Mail} from 'lucide-react'
+import {Telegram, Viber, WhatsUp} from "@/app/ui/footer/custom-icons";
 
 export default function Footer() {
     return (
@@ -11,14 +11,22 @@ export default function Footer() {
                     </p>
                     <div className="flex flex-col gap-4">
                         <div className="flex flex-row gap-1">
-                            <Telegram size={20}/>
-                            <a href="https://t.me/Includo_st" target="_blank" rel="noopener noreferrer" className="underline">
-                                https://t.me/Includo_st
+                            Телеграм канал:
+                            <a href="https://t.me/Includo_st" target="_blank" rel="noopener noreferrer" className="underline ml-1">
+                                t.me/Includo_st
                             </a>
                         </div>
                         <div className="flex flex-row gap-1">
-                            <Phone size={20}/>
-                            <a>89124693676</a>
+                            Страница ВК:
+                            <a href="https://vk.com/id20032363" target="_blank" rel="noopener noreferrer" className="underline ml-1">
+                                vk.com/id20032363
+                            </a>
+                        </div>
+                        <div className="flex flex-row gap-1">
+                            <Telegram size={25}/>
+                            <Viber size={25}/>
+                            <WhatsUp size={25}/>
+                            <a className='ml-2'>89127532529</a>
                         </div>
                         <div className="flex flex-row gap-1">
                             <Mail size={20}/>

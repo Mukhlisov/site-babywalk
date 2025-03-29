@@ -1,7 +1,7 @@
 'use client'
 
-import BabyWalkLogo from "@/app/ui/nav/logo";
-import {PcNavArea, PhoneNavArea} from "@/app/ui/nav/nav-area";
+import BabyWalkLogo from "@/app/components/nav/logo";
+import {PcNavArea, PhoneNavArea} from "@/app/components/nav/nav-area";
 
 export default function Navbar() {
 

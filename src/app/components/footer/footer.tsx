@@ -1,5 +1,5 @@
 ﻿import {Mail} from 'lucide-react'
-import {Telegram, Viber, WhatsUp} from "@/app/ui/footer/custom-icons";
+import {Telegram, Viber, WhatsUp} from "@/app/components/footer/custom-icons";
 
 export default function Footer() {
     return (

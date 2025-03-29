@@ -5,45 +5,55 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 
 export default function About() {
     const [isOpen, setIsOpen] = useState(false);
+
     return (
-        <div id="about" className="p-1 px-6 md:my-16">
+        <div id="about" className="p-1 px-6 md:mb-16">
             <h1 className="text-2xl md:text-3xl text-center font-bold p-2">
                 АНО Движение детям
             </h1>
 
-            <button
-                className="flex items-center gap-2 mx-auto mt-4 p-2 rounded-lg bg-zinc-50 md:hover:bg-zinc-200 active:bg-zinc-200 transition"
-                onClick={() => setIsOpen(!isOpen)}
-            >
-                {isOpen ? "Скрыть" : "Подробнее"}
-                {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-            </button>
-
-            <motion.div
-                initial={false}
-                animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="overflow-hidden mt-2"
-            >
-                <div className="text-md text-pretty indent-6 mt-4 rounded-md bg-zinc-50 p-4 md:p-8">
+            <div className="text-md text-pretty indent-6 mt-4 rounded-md p-4 md:p-8 relative">
+                <motion.div
+                    initial={false}
+                    animate={isOpen ? { height: "auto", opacity: 1 } : { height: 100, opacity: 1 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className={`overflow-hidden relative ${!isOpen ? 
+                        "after:absolute after:bottom-0 after:left-0 after:w-full after:h-16 after:bg-gradient-to-b " +
+                        "after:from-transparent after:to-zinc-50" : ""}`}
+                >
                     <p>
                         Автономная некоммерческая организация «Движения детям» создана с целью обучения семей и
                         специалистов социально-бытовой адаптации пациентов с двигательными нарушениями.
                     </p><br/>
                     <p>
-                        <u>Социально-бытовая адаптация</u> - это вид реабилитации, нацеленный на восстановление или приобретение
-                        утраченных в результате заболеваний навыков самообслуживания в быту (перемещение по дому,
-                        санитарно-гигиенические процедуры, питание, прогулка и др).
-                        Также социально-бытовая адаптация включает в себя обустройство жилья пациента в соответствии с
-                        имеющимися ограничениями жизнедеятельности, подбор технических средств реабилитации и обучение
-                        ухаживающих ими пользоваться.
+                        <u>Социально-бытовая адаптация</u> - это вид реабилитации, нацеленный на восстановление или
+                        приобретение утраченных в результате заболеваний навыков самообслуживания в быту
+                        (перемещение по дому, санитарно-гигиенические процедуры, питание, прогулка и др).
+                        Также социально-бытовая адаптация включает в себя обустройство жилья пациента в соответствии
+                        с имеющимися ограничениями жизнедеятельности, подбор технических средств реабилитации и
+                        обучение ухаживающих ими пользоваться.
                     </p><br/>
                     <p>
-                        <u>Глобальная цель</u> - обеспечить максимально достойную и самостоятельную жизнь пациента, сделать
-                        проще уход за ним.
+                        <u>Глобальная цель</u> - обеспечить максимально достойную и самостоятельную жизнь пациента,
+                        сделать проще уход за ним.
+                    </p><br/>
+                    <p>
+                        <u>Главный принцип</u> - нет не обучаемых пациентов. Любого можно научить хотя бы минимальным
+                        базовым бытовым навыкам. В особо тяжелых случаях на помощь приходят технические средства реабилитации.
+                    </p><br/>
+                    <p className='text-center indent-0'>
+                        Нет лежачих пациентов, есть те, кого не поставили.
                     </p>
-                </div>
-            </motion.div>
+                </motion.div>
+
+                <button
+                    className="flex items-center gap-2 mx-auto p-1 rounded-lg transition"
+                    onClick={() => setIsOpen(!isOpen)}
+                >
+                    {isOpen ? "Скрыть" : "Подробнее"}
+                    {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                </button>
+            </div>
         </div>
     );
 }

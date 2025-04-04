@@ -1,0 +1,2 @@
+openssl dhparam -out ~/dhparam/dhparam.pem 2048
+generate ssl crt (certbot)

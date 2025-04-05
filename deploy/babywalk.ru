@@ -1,15 +1,15 @@
 upstream frontend {
 	server frontend:3000;
 }
+#server {
+#	listen 80;
+#	server_name babywalk.ru;
+#	return 301 https://$host$request_uri;
+#}
 server {
 	listen 80;
-	server_name babywalk.ru;
-	return 301 https://$host$request_uri;
-}
-server {
-	#listen 80;
-	listen 443 ssl;
-	server_name babywalk.ru;
+	#listen 443 ssl;
+	#server_name babywalk.ru;
 
 	#http2 on;
     #ssl_certificate /etc/nginx/ssl/fullchain.pem;

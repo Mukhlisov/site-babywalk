@@ -3,6 +3,8 @@ services:
     build: ..
     expose:
       - "3000"
+    volumes:
+      - ..:/app
     restart: always
   nginx:
     build: .

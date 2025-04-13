@@ -4,10 +4,10 @@ import Image from "next/image";
 
 export default function Programs() {
     const props : ProgramCardProps[] = [
-        new ProgramCardPropsImpl('Служба домашнего визитирования', 'Home Visiting', '/home-visiting.jpg', '/home-visiting'),
+        new ProgramCardPropsImpl('Служба домашнего визитирования (длительное ведение семьи)', 'Home Visiting', '/home-visiting.jpg', '/home-visiting'),
         new ProgramCardPropsImpl('Движение BabyWalk Удмуртия', 'Baby Walk', '/baby-walk.jpg', '/baby-walk'),
         new ProgramCardPropsImpl('Образование специалистов', 'Education', '/education.jpeg', '/education'),
-        new ProgramCardPropsImpl('Поддержка отечественных разработок ТСР', 'Supports for domestic developments', '/devs-support.jpg', '/devs-support'),
+        new ProgramCardPropsImpl('Аренда и ремонт технических средств реабилитации', 'Supports for domestic developments', '/devs-support.jpg', '/devs-support'),
     ];
     return (
         <div className="px-6 my-8">

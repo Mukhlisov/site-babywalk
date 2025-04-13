@@ -12,7 +12,7 @@ export default function About() {
                 АНО Движение детям
             </h1>
 
-            <div className="text-md text-pretty indent-6 mt-4 rounded-md p-4 md:p-8 relative">
+            <div className="text-md text-justify indent-6 mt-4 rounded-md p-4 md:p-8 relative">
                 <motion.div
                     initial={false}
                     animate={isOpen ? { height: "auto", opacity: 1 } : { height: 100, opacity: 1 }}
@@ -38,11 +38,8 @@ export default function About() {
                         сделать проще уход за ним.
                     </p><br/>
                     <p>
-                        <u>Главный принцип</u> - нет не обучаемых пациентов. Любого можно научить хотя бы минимальным
+                        <u>Главный принцип</u> - нет необучаемых пациентов. Любого можно научить хотя бы минимальным
                         базовым бытовым навыкам. В особо тяжелых случаях на помощь приходят технические средства реабилитации.
-                    </p><br/>
-                    <p className='text-center indent-0'>
-                        Нет лежачих пациентов, есть те, кого не поставили.
                     </p>
                 </motion.div>
 

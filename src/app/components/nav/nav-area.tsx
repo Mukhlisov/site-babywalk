@@ -9,7 +9,7 @@ export function PcNavArea() {
     return (
         <div className="hidden md:flex justify-center">
             <nav className="flex flex-wrap justify-items-start gap-4">
-                {[['Новости', '/news'], ['Контакты', '#contacts']].map((item) => (
+                {[['Новости', '/news'], ['Контакты', '#contacts'], ['Документы', '#docs']].map((item) => (
                     <Link
                         key={item.at(0)}
                         href={`${item.at(1)}`}
@@ -61,7 +61,8 @@ export function PhoneNavArea() {
                     <X size={24} color="black"/>
                 </button>
                 <nav className="p-4">
-                    {[['На главную', '/'], ['Новости', '/news'], ['Контакты', '#contacts']].map((item) => (
+                    {[['На главную', '/'], ['Новости', '/news'], ['Контакты', '#contacts'], ['Документы', '#docs']]
+                        .map((item) => (
                         <Link
                             key={item.at(0)}
                             href={`${item.at(1)}`}

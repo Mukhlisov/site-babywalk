@@ -17,7 +17,7 @@ else
   echo "Node.js и pnpm уже установлены. Пропускаю установку."
 fi
 
-cd ..
+cd "$(dirname "$0")/.." || exit
 pnpm install
 pnpm run build
 docker compose -f deploy/compose.yaml up -d

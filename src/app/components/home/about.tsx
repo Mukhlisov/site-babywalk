@@ -7,7 +7,7 @@ export default function About() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div id="about" className="p-1 px-6 md:mb-16">
+        <div id="about" className="p-1 px-6 md:my-8">
             <h1 className="text-2xl md:text-3xl text-center font-bold p-2">
                 АНО Движение детям
             </h1>
@@ -22,8 +22,8 @@ export default function About() {
                         "after:from-transparent after:to-zinc-50" : ""}`}
                 >
                     <p>
-                        Автономная некоммерческая организация «Движения детям» создана с целью обучения семей и
-                        специалистов социально-бытовой адаптации пациентов с двигательными нарушениями.
+                        Автономная некоммерческая организация «Движения детям» создана с целью обучения социально-бытовой
+                        адаптации детей с ОВЗ, их семей, иных ухаживающих лиц и специалистов.
                     </p><br/>
                     <p>
                         <u>Социально-бытовая адаптация</u> - это вид реабилитации, нацеленный на восстановление или

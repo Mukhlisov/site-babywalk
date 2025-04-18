@@ -2,7 +2,7 @@
 
 export default function Page() {
     return (
-        <div className={"flex flex-col gap-16 py-16"}>
+        <div className={"flex flex-col gap-16 py-8"}>
             <div className={"p-4"}>
                 <h2 className={"py-4 text-3xl text-center font-bold"}>Устав</h2>
                 <PDFViewer filename={"charter.pdf"}/>

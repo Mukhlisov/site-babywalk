@@ -25,7 +25,7 @@ export default function Programs() {
 
 export function ProgramCard( prop: ProgramCardProps) {
     return (
-        <Link className="flex flex-row min-w-[200px] pt-4 transition duration-200 ease-linear active:scale-105"
+        <Link className="flex flex-row min-w-[200px] pt-4 transition duration-150 ease-linear active:scale-105"
               href={"/programs" + prop.link}
         >
             <div className="py-1">

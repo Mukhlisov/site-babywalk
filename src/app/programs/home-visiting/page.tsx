@@ -1,10 +1,7 @@
-import {ImagesPC, ImagesPhone} from "@/app/components/programs/home-visiting";
+import {ImagesPC_Main, ImagesPhone_Main, ListHomeVisiting, VideoGallery} from "@/app/components/programs/home-visiting";
+import Image from "next/image"
 
 export default function Page() {
-    const listItems :string[] = [
-        "Специалист по подбору технических средств реабилитации", "Врач ортопед-реабилитолог", "Дефектолог",
-        "Консультант по развитию и воспитанию детей с овз, консультант по вопросам питания", "Психолог",
-    ];
     return (
         <div className="px-2 md:px-12 my-2 md:my-8">
             <div className="flex flex-row justify-start gap-2">
@@ -13,27 +10,46 @@ export default function Page() {
                     Служба домашнего визитирования
                 </p>
             </div>
-            <div className="flex flex-row flex-wrap gap-x-4 md:gap-x-12 px-2 my-8">
-                <div className="bg-zinc-100/70 p-4 rounded-lg basis-3/5">
-                    <p className="md:text-lg text-pretty">
-                        Проект включает длительное сопровождение семьи: консультации и практические занятия с целью обучения
-                        пациента и его окружения основным навыкам, необходимым в быту, а также подбор ТСР, адаптация среды, оказание
-                        психологической помощи, при необходимости - юридической помощи.
-                    </p>
+            <div className="flex flex-row flex-wrap gap-x-4 md:gap-x-12 px-2 my-8 text-md md:text_desktop">
+                <div className="flex flex-col basis-3/5 gap-[5vh]">
+                    <div className="bg-zinc-100 p-4 shadow-lg rounded-lg">
+                        <p className="text-pretty">
+                            Проект включает длительное сопровождение семьи: консультации и практические занятия с целью обучения
+                            пациента и его окружения основным навыкам, необходимым в быту, а также подбор ТСР, адаптация среды, оказание
+                            психологической помощи, при необходимости - юридической помощи.
+                        </p>
+                    </div>
+                    <div className="hidden xl:block">
+                        <ListHomeVisiting/>
+                    </div>
                 </div>
-                <ImagesPhone/>
-                <ImagesPC/>
+                <ImagesPhone_Main/>
+                <ImagesPC_Main/>
             </div>
-            <div className="md:flex px-2 my-8 md:basis-3/5">
-                <div className="py-4 p-4 bg-zinc-100/70 rounded-lg">
-                    <p className="md:text-lg text-pretty">
-                        Консультации специалистов, в том числе на дому, по социально-бытовой адаптации:
-                    </p>
-                    <ul className="list-disc flex flex-col px-8 mt-4 gap-2 md:text-lg">
-                        {listItems.map((item:string, index:number) => (
-                            <li key={index}>{item}</li>
-                        ))}
-                    </ul>
+            <div className="px-2 my-8 block md:hidden">
+                <ListHomeVisiting/>
+            </div>
+            <div className="px-2 mt-[20vh]">
+                <div className="py-4 p-4 bg-zinc-100 shadow-lg rounded-lg">
+                    <VideoGallery/>
+                </div>
+            </div>
+            <div className="px-2 my-[10vh]">
+                <div className="flex flex-col md:flex-row gap-2 py-4 p-4 bg-zinc-100 shadow-lg rounded-lg">
+                    <Image
+                        src="/home-visiting-img-4.jpg"
+                        alt="img"
+                        width={1280}
+                        height={853}
+                        className="max-h-[26.2vh] w-auto object-contain rounded-lg mx-auto"
+                    />
+                    <Image
+                        src="/home-visiting-img-5.jpg"
+                        alt="img"
+                        width={1280}
+                        height={853}
+                        className="max-h-[26.2vh] w-auto object-contain rounded-lg mx-auto"
+                    />
                 </div>
             </div>
         </div>

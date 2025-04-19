@@ -32,6 +32,12 @@ body {
   }
 }
 
+@layer utilities {
+  .text_desktop {
+    font-size: calc( (100vw - 1920px)/(2560 - 1920) * (26 - 18) + 18px);
+  }
+}
+
 html{
   scroll-behavior: smooth;
 }

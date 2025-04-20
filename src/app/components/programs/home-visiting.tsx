@@ -77,6 +77,7 @@ export function VideoGallery() {
         {src: "/home-visiting-video-1.mp4"},
         {src: "/home-visiting-video-2.mp4"},
         {src: "/home-visiting-video-3.mp4"},
+        {src: "/home-visiting-video-4.mp4"},
     ];
 
     return (
@@ -93,6 +94,49 @@ export function VideoGallery() {
                     </video>
                 </div>
             ))}
+        </div>
+    );
+}
+
+export function ImageGallery() {
+    const images = [
+        "/home-visiting-img-6.jpg",
+        "/home-visiting-img-7.jpg",
+        "/home-visiting-img-8.jpg",
+        "/home-visiting-img-9.jpg",
+    ]
+    return (
+        <div className="flex flex-col flex-wrap gap-8">
+            <div className="flex flex-col md:flex-row flex-wrap gap-2">
+                <Image
+                    src="/home-visiting-img-4.jpg"
+                    alt="img"
+                    width={1280}
+                    height={853}
+                    className="max-h-[26.2vh] w-auto object-contain rounded-lg mx-auto"
+                />
+                <Image
+                    src="/home-visiting-img-5.jpg"
+                    alt="img"
+                    width={1280}
+                    height={853}
+                    className="max-h-[26.2vh] w-auto object-contain rounded-lg mx-auto"
+                />
+            </div>
+            <div className="flex justify-center">
+                <div className="grid grid-cols-2 grid-rows-2 gap-4 p-4 bg-zinc-50 rounded-lg">
+                    {images.map((image: string, index: number) => (
+                        <Image
+                            key={index}
+                            src={image}
+                            alt="img"
+                            width={1000}
+                            height={1000}
+                            className="max-h-[120] md:max-h-[400px] w-auto shadow-xl rounded-lg"
+                        />
+                    ))}
+                </div>
+            </div>
         </div>
     );
 }

@@ -1,5 +1,10 @@
-import {ImagesPC_Main, ImagesPhone_Main, ListHomeVisiting, VideoGallery} from "@/app/components/programs/home-visiting";
-import Image from "next/image"
+import {
+    ImageGallery,
+    ImagesPC_Main,
+    ImagesPhone_Main,
+    ListHomeVisiting,
+    VideoGallery
+} from "@/app/components/programs/home-visiting";
 
 export default function Page() {
     return (
@@ -35,21 +40,8 @@ export default function Page() {
                 </div>
             </div>
             <div className="px-2 my-[10vh]">
-                <div className="flex flex-col md:flex-row gap-2 py-4 p-4 bg-zinc-100 shadow-lg rounded-lg">
-                    <Image
-                        src="/home-visiting-img-4.jpg"
-                        alt="img"
-                        width={1280}
-                        height={853}
-                        className="max-h-[26.2vh] w-auto object-contain rounded-lg mx-auto"
-                    />
-                    <Image
-                        src="/home-visiting-img-5.jpg"
-                        alt="img"
-                        width={1280}
-                        height={853}
-                        className="max-h-[26.2vh] w-auto object-contain rounded-lg mx-auto"
-                    />
+                <div className="py-4 p-4 bg-zinc-100 shadow-lg rounded-lg">
+                    <ImageGallery/>
                 </div>
             </div>
         </div>

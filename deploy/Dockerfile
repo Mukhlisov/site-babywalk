@@ -1,7 +1,7 @@
 FROM nginx:latest
 
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY babywalk.ru /etc/nginx/sites-available/babywalk.ru
+#COPY babywalk.ru /etc/nginx/sites-available/babywalk.ru
 
 RUN <<EOF 
 apt-get update && apt-get install nano

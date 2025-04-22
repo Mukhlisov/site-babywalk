@@ -12,7 +12,10 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - /etc/letsencrypt/live/babywalk.ru:/etc/nginx/ssl:ro
+      - /var/www/html:/var/www/html:ro
+      - /etc/letsencrypt/live/babywalk.ru/fullchain.pem:/etc/nginx/ssl/fullchain.pem:ro
+      - /etc/letsencrypt/live/babywalk.ru/privkey.pem:/etc/nginx/ssl/privkey.pem:ro
+      - ./sites-available:/etc/nginx/sites-available
       - ~/dhparam:/etc/nginx/dhparam:ro
     depends_on:
       - frontend

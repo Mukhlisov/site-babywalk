@@ -7,7 +7,7 @@ export default function Programs() {
         new ProgramCardPropsImpl('Служба домашнего визитирования (длительное ведение семьи)', 'Home Visiting', '/home-visiting.jpg', '/home-visiting'),
         new ProgramCardPropsImpl('Движение BabyWalk Удмуртия', 'Baby Walk', '/baby-walk.jpg', '/baby-walk'),
         new ProgramCardPropsImpl('Образование специалистов', 'Education', '/education.jpeg', '/education'),
-        new ProgramCardPropsImpl('Аренда и ремонт технических средств реабилитации', 'Supports for domestic developments', '/devs-support.jpg', '/devs-support'),
+        new ProgramCardPropsImpl('Аренда и ремонт технических средств реабилитации', 'Supports for domestic developments', '/tsr.jpg', '/devs-support'),
     ];
     return (
         <div className="px-6 my-8">

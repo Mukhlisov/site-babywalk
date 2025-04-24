@@ -107,7 +107,7 @@ export function ImageGallery() {
     ]
     return (
         <div className="flex flex-col flex-wrap gap-8">
-            <div className="flex flex-col md:flex-row flex-wrap gap-2">
+            <div className="flex flex-row flex-wrap gap-2">
                 <Image
                     src="/home-visiting-img-4.jpg"
                     alt="img"

@@ -3,27 +3,27 @@ import {ChevronsRight} from 'lucide-react';
 import Image from "next/image";
 
 export default function Programs() {
-    const props : ProgramCardProps[] = [
+    const props: ProgramCardProps[] = [
         new ProgramCardPropsImpl('Служба домашнего визитирования (длительное ведение семьи)', 'Home Visiting', '/home-visiting.jpg', '/home-visiting'),
         new ProgramCardPropsImpl('Движение BabyWalk Удмуртия', 'Baby Walk', '/baby-walk.jpg', '/baby-walk'),
         new ProgramCardPropsImpl('Образование специалистов', 'Education', '/education.jpeg', '/education'),
-        new ProgramCardPropsImpl('Аренда и ремонт технических средств реабилитации', 'Supports for domestic developments', '/tsr.jpg', '/devs-support'),
+        new ProgramCardPropsImpl('Аренда и ремонт технических средств реабилитации', 'Technical means of rehabilitation', '/tmr.jpg', '/tmr'),
     ];
     return (
         <div className="px-6 my-8">
             <p className="text-[1.5rem] text-center font-bold">
                 Программы
             </p>
-            <div className="flex flex-row flex-wrap justify-center gap-4 mt-5">
+            <div className="flex flex-row flex-wrap justify-center gap-y-4 gap-x-6 mt-5">
                 {props.map((prop, index) => (
-                    <ProgramCard key={index} entry={prop.entry} alt={prop.alt} src={prop.src} link={prop.link} />
+                    <ProgramCard key={index} entry={prop.entry} alt={prop.alt} src={prop.src} link={prop.link}/>
                 ))}
             </div>
         </div>
     );
 }
 
-export function ProgramCard( prop: ProgramCardProps) {
+/*export function ProgramCard( prop: ProgramCardProps) {
     return (
         <Link className="flex flex-row min-w-[200px] pt-4 transition duration-150 ease-linear active:scale-105"
               href={"/programs" + prop.link}
@@ -32,8 +32,8 @@ export function ProgramCard( prop: ProgramCardProps) {
                 <Image
                     src={prop.src}
                     alt={prop.alt}
-                    width={250}
-                    height={250}
+                    width={scale(250)}
+                    height={scale(250)}
                 />
             </div>
             <div className="relative">
@@ -47,6 +47,36 @@ export function ProgramCard( prop: ProgramCardProps) {
                         </p>
                         <ChevronsRight size={24} color="white" className="bg-lime-700 rounded-sm p-1"/>
                     </div>
+                </div>
+            </div>
+        </Link>
+    );
+}*/
+
+export function ProgramCard(prop: ProgramCardProps) {
+    return (
+        <Link className="flex flex-row min-w-[200px] pt-4 transition duration-150 ease-linear active:scale-105"
+              href={"/programs" + prop.link}
+        >
+            <div className="relative my-1 w-[var(--program-card)] h-[var(--program-card)]">
+                <Image
+                    src={prop.src}
+                    alt={prop.alt}
+                    fill
+                    className=""
+                />
+            </div>
+            <div className="relative">
+                <div className="absolute flex justify-center -translate-x-1/2 h-full min-w-[var(--scew-line)] bg-lime-700 -skew-x-[0.20rad]">
+                    <div className="w-1/6 h-full bg-zinc-50 -skew-x-6"/>
+                </div>
+            </div>
+            <div className="flex items-end h-auto w-[var(--program-card)] bg-zinc-500 p-4 pl-8 my-1">
+                <div className="flex flex-col items-end gap-1">
+                    <p className="text-end text-pretty self-center">
+                        {prop.entry}
+                    </p>
+                    <ChevronsRight size={48} color="white" className="bg-lime-700 rounded-sm p-1 w-[var(--icons)] h-auto"/>
                 </div>
             </div>
         </Link>

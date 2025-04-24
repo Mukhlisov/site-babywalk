@@ -15,7 +15,7 @@ export default function Page() {
                     Служба домашнего визитирования
                 </p>
             </div>
-            <div className="flex flex-row flex-wrap gap-x-4 md:gap-x-12 px-2 my-8 text-md md:text_desktop">
+            <div className="flex flex-row flex-wrap gap-x-4 md:gap-x-12 px-2 my-8">
                 <div className="flex flex-col basis-3/5 gap-[5vh]">
                     <div className="bg-zinc-100 p-4 shadow-lg rounded-lg">
                         <p className="text-pretty">
@@ -31,7 +31,7 @@ export default function Page() {
                 <ImagesPhone_Main/>
                 <ImagesPC_Main/>
             </div>
-            <div className="px-2 my-8 block md:hidden">
+            <div className="px-2 my-8 block xl:hidden">
                 <ListHomeVisiting/>
             </div>
             <div className="px-2 mt-[20vh]">

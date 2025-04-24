@@ -107,7 +107,7 @@ export function ImageGallery() {
     ]
     return (
         <div className="flex flex-col flex-wrap gap-8">
-            <div className="flex flex-col md:flex-row flex-wrap gap-2">
+            <div className="flex flex-row flex-wrap gap-2">
                 <Image
                     src="/home-visiting-img-4.jpg"
                     alt="img"
@@ -124,7 +124,7 @@ export function ImageGallery() {
                 />
             </div>
             <div className="flex justify-center">
-                <div className="grid grid-cols-2 grid-rows-2 gap-4 p-4 bg-zinc-50 rounded-lg">
+                <div className="grid grid-cols-2 gap-4 grid-rows-2 p-4 w-full md:w-1/2 bg-zinc-50 rounded-lg">
                     {images.map((image: string, index: number) => (
                         <Image
                             key={index}
@@ -132,7 +132,7 @@ export function ImageGallery() {
                             alt="img"
                             width={1000}
                             height={1000}
-                            className="max-h-[120] md:max-h-[400px] w-auto shadow-xl rounded-lg"
+                            className="max-w-1/2 h-auto shadow-xl rounded-lg"
                         />
                     ))}
                 </div>

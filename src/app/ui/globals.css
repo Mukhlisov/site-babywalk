@@ -5,6 +5,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --text_desktop: calc( (100vw - 1920px)/(2560 - 1920) * (26 - 18) + 16px);
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -15,7 +16,7 @@
 } */
 
 body {
-  color: var(--foreground);
+  /*color: var(--foreground);*/
   /*background: var(--background);*/
   background-image: url("/background.jpg");
   background-attachment: fixed;
@@ -29,12 +30,6 @@ body {
 @media (max-width: 768px) {
   body {
     background-attachment: scroll, local;
-  }
-}
-
-@layer utilities {
-  .text_desktop {
-    font-size: calc( (100vw - 1920px)/(2560 - 1920) * (26 - 18) + 18px);
   }
 }
 

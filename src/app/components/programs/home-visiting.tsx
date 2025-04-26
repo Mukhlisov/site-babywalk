@@ -7,19 +7,19 @@ export function ImagesPC_Main() {
                 src={"/home-visiting-img-2.jpg"}
                 alt={"img"}
                 fill
-                className="max-h-[26.2vh] max-w-[26.2vh] absolute z-[0] rounded-lg shadow-2xl shadow-zinc-950"
+                className="max-w-[240px] max-h-[240px] absolute rounded-lg shadow-2xl shadow-zinc-950"
             />
             <Image
                 src={"/home-visiting-img-1.jpg"}
                 alt={"img"}
                 fill
-                className="max-h-[26.2vh] max-w-[26.2vh] absolute z-[5] translate-x-[76%] translate-y-[76%] rounded-lg shadow-2xl shadow-zinc-950"
+                className="max-w-[240px] max-h-[240px] absolute translate-x-[76%] translate-y-[76%] rounded-lg shadow-2xl shadow-zinc-950"
             />
             <Image
                 src={"/home-visiting-img-3.jpg"}
                 alt={"img"}
                 fill
-                className="max-h-[26.2vh] max-w-[26.2vh] absolute z-[5] -translate-x-[20%] translate-y-[120%] rounded-lg shadow-2xl shadow-zinc-950"
+                className="max-w-[240px] max-h-[240px] absolute -translate-x-[20%] translate-y-[120%] rounded-lg shadow-2xl shadow-zinc-950"
             />
         </div>
     );
@@ -81,12 +81,12 @@ export function VideoGallery() {
     ];
 
     return (
-        <div className="flex flex-col md:flex-row flex-wrap gap-8 p-4">
+        <div className="flex flex-row flex-wrap gap-8 p-4">
             {videos.map((video, index) => (
                 <div key={index} className="mx-auto">
                     <video
                         controls
-                        className="h-[40vh] w-auto object-contain rounded-lg shadow-lg"
+                        className="h-[40vh] md:h-[450px] w-auto object-contain rounded-lg shadow-lg"
                         preload="metadata"
                     >
                         <source src={video.src} type="video/mp4"/>
@@ -113,18 +113,18 @@ export function ImageGallery() {
                     alt="img"
                     width={1280}
                     height={853}
-                    className="max-h-[26.2vh] w-auto object-contain rounded-lg mx-auto"
+                    className="w-[350px] h-auto rounded-lg mx-auto"
                 />
                 <Image
                     src="/home-visiting-img-5.jpg"
                     alt="img"
                     width={1280}
                     height={853}
-                    className="max-h-[26.2vh] w-auto object-contain rounded-lg mx-auto"
+                    className="w-[350px] h-auto rounded-lg mx-auto"
                 />
             </div>
             <div className="flex justify-center">
-                <div className="grid grid-cols-2 grid-rows-2 gap-4 p-4 bg-zinc-50 rounded-lg">
+                <div className="grid grid-cols-2 gap-4 grid-rows-2 p-4 w-full md:w-1/2 bg-zinc-50 rounded-lg">
                     {images.map((image: string, index: number) => (
                         <Image
                             key={index}
@@ -132,7 +132,7 @@ export function ImageGallery() {
                             alt="img"
                             width={1000}
                             height={1000}
-                            className="max-h-[120] md:max-h-[400px] w-auto shadow-xl rounded-lg"
+                            className="max-w-1/2 h-auto shadow-xl rounded-lg"
                         />
                     ))}
                 </div>

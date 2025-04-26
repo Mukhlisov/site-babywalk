@@ -5,10 +5,6 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --text-basic: calc((100vw - 1920px)/1920 * 22.4 + 16px);
-  --program-card: max(250px, calc((100vw - 1920px)/1920 * 250 + 250px));
-  --icons: max(24px, calc((100vw - 1920px)/1920 * 24 + 24px));
-  --scew-line: max(55px, calc((100vw - 1920px)/1920 * 65 + 65px))
 }
 
 /* @media (prefers-color-scheme: dark) {

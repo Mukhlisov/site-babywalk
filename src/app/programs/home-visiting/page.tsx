@@ -34,12 +34,12 @@ export default function Page() {
             <div className="px-2 my-8 block xl:hidden">
                 <ListHomeVisiting/>
             </div>
-            <div className="px-2 mt-[20vh]">
+            <div className="px-2 mt-48">
                 <div className="py-4 p-4 bg-zinc-100 shadow-lg rounded-lg">
                     <VideoGallery/>
                 </div>
             </div>
-            <div className="px-2 my-[10vh]">
+            <div className="px-2 my-32">
                 <div className="py-4 p-4 bg-zinc-100 shadow-lg rounded-lg">
                     <ImageGallery/>
                 </div>

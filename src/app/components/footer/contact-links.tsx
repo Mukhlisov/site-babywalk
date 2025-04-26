@@ -1,4 +1,5 @@
-﻿import {EMail, Telegram, Viber, WhatsUp, YouTube} from "@/app/components/footer/custom-icons";
+﻿import {Telegram, Viber, WhatsUp, YouTube} from "@/app/components/footer/custom-icons";
+import {Mail} from "lucide-react";
 
 export function PhoneLink() {
     return (
@@ -14,7 +15,7 @@ export function PhoneLink() {
 export function EMailLink() {
     return (
         <div className="flex flex-row gap-1">
-            <EMail size={24}/>
+            <Mail size={20}/>
             <a>baby_walk@mail.ru</a>
         </div>
     );

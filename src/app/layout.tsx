@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={`${panton.className} antialiased text-zinc-950 text-adaptive`}>
+      <body className={`${panton.className} antialiased text-zinc-950 text-base`}>
         <Navbar/>
         <div className="min-h-screen flex justify-center backdrop-blur-[5px]">
           <main className="w-full md:w-3/4 shadow-2xl min-h-fit bg-zinc-50 pt-[80px] md:pt-[100px]">

@@ -23,7 +23,7 @@ export default function Programs() {
     );
 }
 
-/*export function ProgramCard( prop: ProgramCardProps) {
+export function ProgramCard(prop: ProgramCardProps) {
     return (
         <Link className="flex flex-row min-w-[200px] pt-4 transition duration-150 ease-linear active:scale-105"
               href={"/programs" + prop.link}
@@ -32,12 +32,13 @@ export default function Programs() {
                 <Image
                     src={prop.src}
                     alt={prop.alt}
-                    width={scale(250)}
-                    height={scale(250)}
+                    width={250}
+                    height={250}
                 />
             </div>
             <div className="relative">
-                <div className="absolute flex justify-center -translate-x-1/2 h-full min-w-[55px] bg-lime-700 -skew-x-[0.20rad] shrink">
+                <div
+                    className="absolute flex justify-center -translate-x-1/2 h-full min-w-[55px] bg-lime-700 -skew-x-[0.20rad] shrink">
                     <div className="w-2 h-full bg-zinc-50 -skew-x-6"/>
                 </div>
                 <div className="flex items-end h-full max-w-[250px] bg-zinc-100 p-4 pl-8">
@@ -47,36 +48,6 @@ export default function Programs() {
                         </p>
                         <ChevronsRight size={24} color="white" className="bg-lime-700 rounded-sm p-1"/>
                     </div>
-                </div>
-            </div>
-        </Link>
-    );
-}*/
-
-export function ProgramCard(prop: ProgramCardProps) {
-    return (
-        <Link className="flex flex-row min-w-[200px] pt-4 transition duration-150 ease-linear active:scale-105"
-              href={"/programs" + prop.link}
-        >
-            <div className="relative my-1 w-[var(--program-card)] h-[var(--program-card)]">
-                <Image
-                    src={prop.src}
-                    alt={prop.alt}
-                    fill
-                    className=""
-                />
-            </div>
-            <div className="relative">
-                <div className="absolute flex justify-center -translate-x-1/2 h-full min-w-[var(--scew-line)] bg-lime-700 -skew-x-[0.20rad]">
-                    <div className="w-1/6 h-full bg-zinc-50 -skew-x-6"/>
-                </div>
-            </div>
-            <div className="flex items-end h-auto w-[var(--program-card)] bg-zinc-500 p-4 pl-8 my-1">
-                <div className="flex flex-col items-end gap-1">
-                    <p className="text-end text-pretty self-center">
-                        {prop.entry}
-                    </p>
-                    <ChevronsRight size={48} color="white" className="bg-lime-700 rounded-sm p-1 w-[var(--icons)] h-auto"/>
                 </div>
             </div>
         </Link>

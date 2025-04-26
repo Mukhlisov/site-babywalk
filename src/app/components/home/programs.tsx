@@ -23,9 +23,9 @@ export default function Programs() {
     );
 }
 
-export function ProgramCard(prop: ProgramCardProps) {
+function ProgramCard(prop: ProgramCardProps) {
     return (
-        <Link className="flex flex-row min-w-[200px] pt-4 transition duration-150 ease-linear active:scale-105"
+        <Link className="flex flex-row min-w-[200px] pt-4 transition duration-150 ease-linear hover:scale-[101%] active:scale-105"
               href={"/programs" + prop.link}
         >
             <div className="py-1">
@@ -41,9 +41,9 @@ export function ProgramCard(prop: ProgramCardProps) {
                     className="absolute flex justify-center -translate-x-1/2 h-full min-w-[55px] bg-lime-700 -skew-x-[0.20rad] shrink">
                     <div className="w-2 h-full bg-zinc-50 -skew-x-6"/>
                 </div>
-                <div className="flex items-end h-full max-w-[250px] bg-zinc-100 p-4 pl-8">
-                    <div className="flex flex-col items-end gap-1">
-                        <p className="text-end text-pretty self-center">
+                <div className="flex items-end justify-end h-full max-w-[250px] bg-zinc-100 p-4">
+                    <div className="flex flex-col items-end gap-1 w-[85%]">
+                        <p className="text-end text-pretty">
                             {prop.entry}
                         </p>
                         <ChevronsRight size={24} color="white" className="bg-lime-700 rounded-sm p-1"/>

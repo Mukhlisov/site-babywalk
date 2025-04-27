@@ -1,4 +1,5 @@
 import Image from "next/image";
+import {useState} from "react";
 
 export function ImagesPC_Main() {
     return (
@@ -6,20 +7,23 @@ export function ImagesPC_Main() {
             <Image
                 src={"/home-visiting-img-2.jpg"}
                 alt={"img"}
-                fill
-                className="max-w-[240px] max-h-[240px] absolute rounded-lg shadow-2xl shadow-zinc-950"
+                width={240}
+                height={240}
+                className="absolute rounded-lg shadow-2xl shadow-zinc-950"
             />
             <Image
                 src={"/home-visiting-img-1.jpg"}
                 alt={"img"}
-                fill
-                className="max-w-[240px] max-h-[240px] absolute translate-x-[76%] translate-y-[76%] rounded-lg shadow-2xl shadow-zinc-950"
+                width={240}
+                height={240}
+                className="absolute translate-x-[76%] translate-y-[76%] rounded-lg shadow-2xl shadow-zinc-950"
             />
             <Image
                 src={"/home-visiting-img-3.jpg"}
                 alt={"img"}
-                fill
-                className="max-w-[240px] max-h-[240px] absolute -translate-x-[20%] translate-y-[120%] rounded-lg shadow-2xl shadow-zinc-950"
+                width={240}
+                height={240}
+                className="absolute -translate-x-[20%] translate-y-[120%] rounded-lg shadow-2xl shadow-zinc-950"
             />
         </div>
     );
@@ -27,7 +31,7 @@ export function ImagesPC_Main() {
 
 export function ImagesPhone_Main() {
     return (
-        <div className="flex flex-col gap-1 shrink-1 justify-between xl:hidden">
+        <div className="flex flex-col gap-1 shrink justify-between xl:hidden">
             <Image
                 src={"/home-visiting-img-2.jpg"}
                 alt={"img"}
@@ -105,6 +109,8 @@ export function ImageGallery() {
         "/home-visiting-img-8.jpg",
         "/home-visiting-img-9.jpg",
     ]
+    const [isExpanded, setIsExpanded] = useState(false);
+
     return (
         <div className="flex flex-col flex-wrap gap-8">
             <div className="flex flex-row flex-wrap gap-2">
@@ -124,15 +130,19 @@ export function ImageGallery() {
                 />
             </div>
             <div className="flex justify-center">
-                <div className="grid grid-cols-2 gap-4 grid-rows-2 p-4 w-full md:w-1/2 bg-zinc-50 rounded-lg">
+                <div className="relative grid grid-rows-2 grid-cols-2 gap-4 p-4 w-full lg:w-1/2 aspect-square bg-zinc-50 rounded-lg">
                     {images.map((image: string, index: number) => (
                         <Image
                             key={index}
                             src={image}
                             alt="img"
-                            width={1000}
-                            height={1000}
-                            className="max-w-1/2 h-auto shadow-xl rounded-lg"
+                            width={400}
+                            height={400} /*Todo*/
+                            className={`w-auto h-auto shadow-xl rounded-lg shrink transform
+                            ${isExpanded ? "" : ""}
+                            transition-transform duration-150
+                            `}
+                            onClick={() => setIsExpanded(!isExpanded)}
                         />
                     ))}
                 </div>

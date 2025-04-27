@@ -16,7 +16,7 @@ export function PcNavArea() {
                         className={clsx(
                             {
                                 "underline": path === item.at(1),
-                            }, "p-1 hover:bg-zinc-300 rounded-lg"
+                            }, "p-1 hover:bg-zinc-300 transition duration-150 rounded-lg"
                         )}
                     >
                         {item.at(0)}
@@ -45,7 +45,6 @@ export function PhoneNavArea() {
             <button onClick={() => setIsOpen(true)}>
                 <Menu size={24} />
             </button>
-            {/* Затемненный фон */}
             {isOpen && (
                 <div
                     className="fixed inset-0 bg-zinc-950 bg-opacity-50"
@@ -57,7 +56,7 @@ export function PhoneNavArea() {
                 ${isOpen ? 'translate-x-0' : '-translate-x-full'} 
                 transition-transform duration-300`}
             >
-                <button className="p-4" onClick={() => setIsOpen(false)}>
+                <button className=" p-4" onClick={() => setIsOpen(false)}>
                     <X size={24} color="black"/>
                 </button>
                 <nav className="p-4">
@@ -79,6 +78,5 @@ export function PhoneNavArea() {
                 </nav>
             </div>
         </div>
-
     );
 }

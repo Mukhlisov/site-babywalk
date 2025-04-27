@@ -6,20 +6,23 @@ export function ImagesPC_Main() {
             <Image
                 src={"/home-visiting-img-2.jpg"}
                 alt={"img"}
-                fill
-                className="max-h-[26.2vh] max-w-[26.2vh] absolute z-[0] rounded-lg shadow-2xl shadow-zinc-950"
+                width={240}
+                height={240}
+                className="absolute rounded-lg shadow-2xl shadow-zinc-950"
             />
             <Image
                 src={"/home-visiting-img-1.jpg"}
                 alt={"img"}
-                fill
-                className="max-h-[26.2vh] max-w-[26.2vh] absolute z-[5] translate-x-[76%] translate-y-[76%] rounded-lg shadow-2xl shadow-zinc-950"
+                width={240}
+                height={240}
+                className="absolute translate-x-[76%] translate-y-[76%] rounded-lg shadow-2xl shadow-zinc-950"
             />
             <Image
                 src={"/home-visiting-img-3.jpg"}
                 alt={"img"}
-                fill
-                className="max-h-[26.2vh] max-w-[26.2vh] absolute z-[5] -translate-x-[20%] translate-y-[120%] rounded-lg shadow-2xl shadow-zinc-950"
+                width={240}
+                height={240}
+                className="absolute -translate-x-[20%] translate-y-[120%] rounded-lg shadow-2xl shadow-zinc-950"
             />
         </div>
     );
@@ -27,7 +30,7 @@ export function ImagesPC_Main() {
 
 export function ImagesPhone_Main() {
     return (
-        <div className="flex flex-col gap-1 shrink-1 justify-between xl:hidden">
+        <div className="flex flex-col gap-1 shrink justify-between xl:hidden">
             <Image
                 src={"/home-visiting-img-2.jpg"}
                 alt={"img"}
@@ -81,12 +84,12 @@ export function VideoGallery() {
     ];
 
     return (
-        <div className="flex flex-col md:flex-row flex-wrap gap-8 p-4">
+        <div className="flex flex-row flex-wrap gap-8 p-4">
             {videos.map((video, index) => (
                 <div key={index} className="mx-auto">
                     <video
                         controls
-                        className="h-[40vh] w-auto object-contain rounded-lg shadow-lg"
+                        className="h-[40vh] md:h-[450px] w-auto object-contain rounded-lg shadow-lg"
                         preload="metadata"
                     >
                         <source src={video.src} type="video/mp4"/>
@@ -113,14 +116,14 @@ export function ImageGallery() {
                     alt="img"
                     width={1280}
                     height={853}
-                    className="max-h-[26.2vh] w-auto object-contain rounded-lg mx-auto"
+                    className="w-[350px] h-auto rounded-lg mx-auto"
                 />
                 <Image
                     src="/home-visiting-img-5.jpg"
                     alt="img"
                     width={1280}
                     height={853}
-                    className="max-h-[26.2vh] w-auto object-contain rounded-lg mx-auto"
+                    className="w-[350px] h-auto rounded-lg mx-auto"
                 />
             </div>
             <div className="flex justify-center">

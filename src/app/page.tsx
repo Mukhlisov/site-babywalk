@@ -6,7 +6,7 @@ export default function Home() {
     <div className="p-1">
       <About/>
       <Programs/>
-      <div className="grid grid-cols-2 my-16">
+      <div className="grid grid-cols-1 my-16">
           <div className="flex justify-center">
               <button className="text-center border border-zinc-900 rounded w-[140px] h-[70px] m-2 p-1
                     transition md:hover:bg-lime-600 active:bg-lime-600 duration-300"
@@ -14,13 +14,13 @@ export default function Home() {
                   Помочь
               </button>
           </div>
-          <div className="flex justify-center">
+          {/*<div className="flex justify-center">
               <button className="text-center border border-zinc-900 rounded w-[140px] h-[70px] m-2 p-1
                     transition md:hover:bg-lime-600 active:bg-lime-600 duration-300"
               >
                   Нужна помощь
               </button>
-          </div>
+          </div>*/}
       </div>
     </div>
   );

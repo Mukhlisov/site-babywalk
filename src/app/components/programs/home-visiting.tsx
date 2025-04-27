@@ -104,10 +104,10 @@ export function VideoGallery() {
 
 export function ImageGallery() {
     const images = [
-        "/home-visiting-img-6.jpg",
-        "/home-visiting-img-7.jpg",
-        "/home-visiting-img-8.jpg",
-        "/home-visiting-img-9.jpg",
+        {src: "/home-visiting-img-6.jpg"},
+        {src: "/home-visiting-img-7.jpg"},
+        {src: "/home-visiting-img-8.jpg"},
+        {src: "/home-visiting-img-9.jpg"},
     ]
     const [isExpanded, setIsExpanded] = useState(false);
 
@@ -131,15 +131,15 @@ export function ImageGallery() {
             </div>
             <div className="flex justify-center">
                 <div className="relative grid grid-rows-2 grid-cols-2 gap-4 p-4 w-full lg:w-1/2 aspect-square bg-zinc-50 rounded-lg">
-                    {images.map((image: string, index: number) => (
+                    {images.map((image, index: number) => (
                         <Image
                             key={index}
-                            src={image}
+                            src={image.src}
                             alt="img"
                             width={400}
-                            height={400} /*Todo*/
+                            height={400}
                             className={`w-auto h-auto shadow-xl rounded-lg shrink transform
-                            ${isExpanded ? "" : ""}
+                            ${isExpanded ? "fixed" : ""}
                             transition-transform duration-150
                             `}
                             onClick={() => setIsExpanded(!isExpanded)}

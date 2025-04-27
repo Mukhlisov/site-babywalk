@@ -7,7 +7,7 @@ import clsx from 'clsx';
 export function PcNavArea() {
     const path = usePathname();
     return (
-        <div className="hidden md:flex justify-center">
+        <div className="hidden lg:flex justify-center">
             <nav className="flex flex-wrap justify-items-start gap-4">
                 {[['Новости', '/news'], ['Контакты', '#contacts'], ['Документы', '#docs']].map((item) => (
                     <Link
@@ -41,20 +41,19 @@ export function PhoneNavArea() {
         };
     }, [isOpen]);
     return (
-        <div className="md:hidden block">
+        <div className="lg:hidden block">
             <button onClick={() => setIsOpen(true)}>
                 <Menu size={24} />
             </button>
             {isOpen && (
                 <div
-                    className="fixed inset-0 bg-zinc-950 bg-opacity-50"
+                    className="fixed inset-0 bg-zinc-950/50"
                     onClick={() => setIsOpen(false)}
                 ></div>
             )}
-            {/* Выезжающее меню */}
-            <div className={`fixed left-0 top-0 h-full w-3/4 bg-zinc-200 shadow-lg transform 
+            <div className={`fixed left-0 top-0 h-full w-3/4 bg-zinc-200 shadow-lg transform
                 ${isOpen ? 'translate-x-0' : '-translate-x-full'} 
-                transition-transform duration-300`}
+                transition-all duration-300 ease-in-out`}
             >
                 <button className=" p-4" onClick={() => setIsOpen(false)}>
                     <X size={24} color="black"/>

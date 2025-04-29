@@ -10,11 +10,7 @@ export const metadata: Metadata = {
     title: "АНО Движение детям",
 };
 
-export default function RootLayout({
-                                       children,
-                                   }: Readonly<{
-    children: React.ReactNode;
-}>) {
+export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
     return (
         <html lang="ru">
         <body className={`${panton.className} antialiased text-zinc-950 text-base`}>

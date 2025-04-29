@@ -6,7 +6,7 @@ export default function Programs() {
     const props: ProgramCardProps[] = [
         new ProgramCardPropsImpl('Служба домашнего визитирования (длительное ведение семьи)', 'Home Visiting', '/home-visiting.jpg', '/home-visiting'),
         new ProgramCardPropsImpl('Движение BabyWalk Удмуртия', 'Baby Walk', '/baby-walk.jpg', '/baby-walk'),
-        new ProgramCardPropsImpl('Образование специалистов', 'Education', '/education.jpeg', '/education'),
+        new ProgramCardPropsImpl('Образовательная деятельность в области реабилитации', 'Education', '/education.jpeg', '/education'),
         new ProgramCardPropsImpl('Аренда и ремонт технических средств реабилитации', 'Technical means of rehabilitation', '/tmr.jpg', '/tmr'),
     ];
     return (
@@ -43,7 +43,7 @@ function ProgramCard(prop: ProgramCardProps) {
                 </div>
                 <div className="flex items-end justify-end h-full max-w-[250px] bg-zinc-100 p-4">
                     <div className="flex flex-col items-end gap-1 w-[85%]">
-                        <p className="text-end text-pretty">
+                        <p className="text-end text-pretty text-sm md:text-base">
                             {prop.entry}
                         </p>
                         <ChevronsRight size={24} color="white" className="bg-lime-700 rounded-sm p-1"/>

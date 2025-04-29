@@ -1,3 +1,4 @@
+'use client'
 import {
     ImageGallery,
     ImagesPC_Main,

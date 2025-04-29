@@ -1,4 +1,5 @@
 import Image from "next/image";
+import {useState} from "react";
 
 export function ImagesPC_Main() {
     return (
@@ -59,7 +60,7 @@ export function ImagesPhone_Main() {
 export function ListHomeVisiting() {
     const listItems: string[] = [
         "Специалист по подбору технических средств реабилитации", "Врач ортопед-реабилитолог", "Дефектолог",
-        "Консультант по развитию и воспитанию детей с овз, консультант по вопросам питания", "Психолог",
+        "Консультант по развитию и воспитанию детей с овз, консультант по вопросам питания", "Психолог", "Юрист"
     ];
     return (
         <div className="py-4 p-4 bg-zinc-100 shadow-lg rounded-lg text-pretty">
@@ -103,11 +104,18 @@ export function VideoGallery() {
 
 export function ImageGallery() {
     const images = [
-        "/home-visiting-img-6.jpg",
-        "/home-visiting-img-7.jpg",
-        "/home-visiting-img-8.jpg",
-        "/home-visiting-img-9.jpg",
-    ]
+        <Image key={0} src={"/home-visiting-img-6.jpg"} alt="image" width={400} height={400} className="shadow-xl rounded-lg"/>,
+        <Image key={1} src={"/home-visiting-img-7.jpg"} alt="image" width={400} height={400} className="shadow-xl rounded-lg"/>,
+        <Image key={2} src={"/home-visiting-img-8.jpg"} alt="image" width={400} height={400} className="shadow-xl rounded-lg"/>,
+        <Image key={3} src={"/home-visiting-img-9.jpg"} alt="image" width={400} height={400} className="shadow-xl rounded-lg"/>,
+    ];
+
+    const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+    const handleImageClick = (index: number) => {
+        if (window.innerWidth > 800) return;
+        setExpandedIndex(prev => prev === index ? null : index);
+    }
+
     return (
         <div className="flex flex-col flex-wrap gap-8">
             <div className="flex flex-row flex-wrap gap-2">
@@ -126,17 +134,28 @@ export function ImageGallery() {
                     className="w-[350px] h-auto rounded-lg mx-auto"
                 />
             </div>
-            <div className="flex justify-center">
-                <div className="grid grid-cols-2 gap-4 grid-rows-2 p-4 w-full md:w-1/2 bg-zinc-50 rounded-lg">
-                    {images.map((image: string, index: number) => (
-                        <Image
+            <div className="flex justify-center relative">
+                <div className="flex md:hidden w-full h-0 p-4 absolute place-content-between">
+                    {images.map((image, index : number) => (
+                        <div key={index}
+                             onClick={() => handleImageClick(index)}
+                             className={`${expandedIndex === index ? "opacity-100 w-full h-auto" : "opacity-0 w-0 h-0"}
+                             transition-all duration-[400ms] ease-out
+                             `}
+                        >
+                            {image}
+                        </div>
+                    ))}
+                </div>
+                <div className={`grid grid-cols-2 gap-4 p-4 w-auto aspect-square bg-zinc-50 rounded-lg`}>
+                    {images.map((image, index: number) => (
+                        <div
                             key={index}
-                            src={image}
-                            alt="img"
-                            width={1000}
-                            height={1000}
-                            className="max-w-1/2 h-auto shadow-xl rounded-lg"
-                        />
+                            className={`w-auto md:w-[280px]`}
+                            onClick={() => handleImageClick(index)}
+                        >
+                            {image}
+                        </div>
                     ))}
                 </div>
             </div>

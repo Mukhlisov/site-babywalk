@@ -12,7 +12,7 @@ export default function About() {
                 АНО Движение детям
             </h1>
 
-            <div className="text-md text-justify indent-6 mt-4 rounded-md p-4 md:p-8 relative">
+            <div className="text-justify indent-6 mt-4 rounded-md p-4 md:p-8 relative">
                 <motion.div
                     initial={false}
                     animate={isOpen ? { height: "auto", opacity: 1 } : { height: 100, opacity: 1 }}

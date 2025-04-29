@@ -60,7 +60,7 @@ export function ImagesPhone_Main() {
 export function ListHomeVisiting() {
     const listItems: string[] = [
         "Специалист по подбору технических средств реабилитации", "Врач ортопед-реабилитолог", "Дефектолог",
-        "Консультант по развитию и воспитанию детей с овз, консультант по вопросам питания", "Психолог",
+        "Консультант по развитию и воспитанию детей с овз, консультант по вопросам питания", "Психолог", "Юрист"
     ];
     return (
         <div className="py-4 p-4 bg-zinc-100 shadow-lg rounded-lg text-pretty">
@@ -104,12 +104,17 @@ export function VideoGallery() {
 
 export function ImageGallery() {
     const images = [
-        {src: "/home-visiting-img-6.jpg"},
-        {src: "/home-visiting-img-7.jpg"},
-        {src: "/home-visiting-img-8.jpg"},
-        {src: "/home-visiting-img-9.jpg"},
-    ]
-    const [isExpanded, setIsExpanded] = useState(false);
+        <Image key={0} src={"/home-visiting-img-6.jpg"} alt="image" width={400} height={400} className="shadow-xl rounded-lg"/>,
+        <Image key={1} src={"/home-visiting-img-7.jpg"} alt="image" width={400} height={400} className="shadow-xl rounded-lg"/>,
+        <Image key={2} src={"/home-visiting-img-8.jpg"} alt="image" width={400} height={400} className="shadow-xl rounded-lg"/>,
+        <Image key={3} src={"/home-visiting-img-9.jpg"} alt="image" width={400} height={400} className="shadow-xl rounded-lg"/>,
+    ];
+
+    const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+    const handleImageClick = (index: number) => {
+        if (window.innerWidth > 800) return;
+        setExpandedIndex(prev => prev === index ? null : index);
+    }
 
     return (
         <div className="flex flex-col flex-wrap gap-8">
@@ -129,21 +134,28 @@ export function ImageGallery() {
                     className="w-[350px] h-auto rounded-lg mx-auto"
                 />
             </div>
-            <div className="flex justify-center">
-                <div className="relative grid grid-rows-2 grid-cols-2 gap-4 p-4 w-full lg:w-1/2 aspect-square bg-zinc-50 rounded-lg">
+            <div className="flex justify-center relative">
+                <div className="flex md:hidden w-full h-0 p-4 absolute place-content-between">
+                    {images.map((image, index : number) => (
+                        <div key={index}
+                             onClick={() => handleImageClick(index)}
+                             className={`${expandedIndex === index ? "opacity-100 w-full h-auto" : "opacity-0 w-0 h-0"}
+                             transition-all duration-[400ms] ease-out
+                             `}
+                        >
+                            {image}
+                        </div>
+                    ))}
+                </div>
+                <div className={`grid grid-cols-2 gap-4 p-4 w-auto aspect-square bg-zinc-50 rounded-lg`}>
                     {images.map((image, index: number) => (
-                        <Image
+                        <div
                             key={index}
-                            src={image.src}
-                            alt="img"
-                            width={400}
-                            height={400}
-                            className={`w-auto h-auto shadow-xl rounded-lg shrink transform
-                            ${isExpanded ? "fixed" : ""}
-                            transition-transform duration-150
-                            `}
-                            onClick={() => setIsExpanded(!isExpanded)}
-                        />
+                            className={`w-auto md:w-[280px]`}
+                            onClick={() => handleImageClick(index)}
+                        >
+                            {image}
+                        </div>
                     ))}
                 </div>
             </div>

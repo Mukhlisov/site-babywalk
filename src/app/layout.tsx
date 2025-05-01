@@ -8,6 +8,7 @@ import Footer from "@/app/components/footer/footer";
 
 export const metadata: Metadata = {
     title: "АНО Движение детям",
+    icons: "/favicon.ico",
 };
 
 export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {

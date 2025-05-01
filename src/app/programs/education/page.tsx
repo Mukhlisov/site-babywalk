@@ -1,6 +1,7 @@
 'use client'
 import Image from "next/image"
 import Title from "@/app/components/programs/program-title";
+import {VideoSeminar} from "@/app/components/programs/education";
 
 export default function Page() {
     return (
@@ -21,19 +22,7 @@ export default function Page() {
                         </p>
                     </div>
                 </div>
-                <section className="w-full md:w-1/2">
-                    <h3 className="text-xl text-center bg-zinc-100 rounded-lg my-8 md:mt-0 p-4 shadow-xl">
-                        Семинар по социально-бытовой адаптации
-                    </h3>
-                    <div className={"w-full aspect-video relative overflow-hidden rounded-xl"}>
-                        <iframe
-                            src="https://rutube.ru/play/embed/04d4e30abd558e0e64c435e84370f4ba"
-                            allow="accelerometer; autoplay; clipboard-write; picture-in-picture"
-                            allowFullScreen
-                            className={"absolute w-full h-full"}
-                        />
-                    </div>
-                </section>
+                <VideoSeminar/>
             </div>
         </div>
     );

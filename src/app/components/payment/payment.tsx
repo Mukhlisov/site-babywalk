@@ -105,8 +105,8 @@ function PaymentForm() {
             setError('Пожалуйста, введите числовое значение');
             return false;
         }
-        if (num <= 0) {
-            setError('Сумма должна быть больше 0');
+        if (num < 10) {
+            setError('Минимальная сумма - 10 рублей');
             return false;
         }
         setError('');
@@ -124,20 +124,20 @@ function PaymentForm() {
         if (!validateAmount(amount)) return;
 
         const payload = { value: amount };
-        const json = JSON.stringify(payload);
-        console.log(json);
-        /*try {
-            const response = await fetch('', {
+        try {
+            const response = await fetch('http://localhost:5065/api/payment/create', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(payload),
-            });
-            console.log('Response:', response);
+            })
+                .then(res => res.json());
+
+            window.location.replace(response.confirmationUrl);
         } catch (error) {
             console.error('Error:', error);
-        }*/
+        }
     };
 
     const handleCardClick = (amount: string) => {

@@ -19,6 +19,8 @@ services:
     restart: always
   yandex-kassa:
     build: ../../yookassa-service
+    env_file:
+      - .env
     expose:
       - "5000"
     volumes:

@@ -17,3 +17,10 @@ services:
     depends_on:
       - frontend
     restart: always
+  yandex-kassa:
+    build: ../../yookassa-service
+    expose:
+      - "5000"
+    volumes:
+      - ~/logs:/logs
+    restart: always

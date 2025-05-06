@@ -1,102 +1,11 @@
-import {useState, FormEvent, ChangeEvent, useEffect} from 'react';
-import {X} from "lucide-react";
-import Image from 'next/image';
-import {FixModalOpen} from "@/app/utils/modal-helper";
+import {useState, FormEvent, ChangeEvent} from 'react';
+import {handleResponseStatus} from "@/app/utils/response-status-hadnler";
 
-export default function PaymentWidget() {
-    const [isOpen, setIsOpen] = useState(false);
-
-    useEffect(() => {
-        FixModalOpen(isOpen);
-        if (isOpen)
-            window.history.pushState({ modalOpen: true }, '');
-
-        const handlePopState = () => {
-            if (isOpen)
-                setIsOpen(false);
-        };
-
-        window.addEventListener('popstate', handlePopState);
-
-        return () => {
-            FixModalOpen(false);
-            window.removeEventListener('popstate', handlePopState);
-        };
-    }, [isOpen]);
-
-    const openModal = () => {
-        if (!isOpen) {
-            setIsOpen(true);
-        }
-    }
-
-    const closeModal = () => {
-        if (isOpen) {
-            setIsOpen(false);
-            if (window.history.state?.modalOpen) {
-                window.history.back();
-            }
-        }
-    }
-
-    return(
-        <div className="flex flex-row justify-end md:justify-center items-center">
-            <button className={`p-1 px-2 rounded-sm bg-lime-700 text-zinc-50
-                    md:text-zinc-950 md:bg-transparent md:px-3 md:rounded-md md:hover:text-zinc-50 md:hover:bg-lime-700
-                    active:scale-105
-                    transition-all duration-300 ease-in-out`}
-                    onClick={openModal}
-            >
-                Помочь
-            </button>
-            <div className={`fixed z-20 flex justify-center left-0 top-0 w-full h-dvh bg-zinc-800/50 
-                    ${isOpen ? "opacity-100" : "pointer-events-none opacity-0"} transform transition-opacity duration-300 ease-in-out`}>
-
-                <div className={`flex flex-row flex-wrap justify-center gap-4 p-4 mx-4 bg-zinc-50 rounded-lg z-30 mt-[10vh]
-                        ${isOpen ? "" : "-translate-y-[50vh]"} transform transition-transform duration-300 ease-in-out
-                        max-h-[70vh] md:max-h-[400px] overflow-y-auto
-                        `}>
-
-                    {/*From*/}
-                    <div className={`flex flex-col gap-4 p-2 rounded-lg w-[350px]
-                                    bg-gradient-to-br from-green-100 to-amber-100`}
-                    >
-                        <nav className={"flex flex-row gap-2 justify-end items-baseline"}>
-                            <h4 className={"md:text-lg"}>Благотворительное пожертвование</h4>
-                            <X size={24} color="black" className="cursor-pointer" onClick={closeModal} />
-                        </nav>
-                        <div className={"my-auto"}>
-                            <PaymentForm/>
-                        </div>
-                    </div>
-                    {/*QR*/}
-                    <section className={`flex flex-col items-center gap-4 p-2 rounded-lg w-[350px]
-                            bg-gradient-to-tr md:bg-gradient-to-bl from-green-100 to-amber-100
-                            `}
-                    >
-                        <h4 className={"md:text-lg text-center text-pretty"}>
-                            Или отсканируйте из приложения банка
-                        </h4>
-                        <div className={"flex justify-center items-center my-auto"}>
-                            <Image
-                                src={"/payment-qr.jpg"}
-                                alt={"payment-qr"}
-                                width={225}
-                                height={225}
-                                className={"rounded-md"}
-                            />
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </div>
-    );
-}
-
-function PaymentForm() {
+export function PaymentForm() {
     const [selectedAmount, setSelectedAmount] = useState<string>('');
     const [isOfferAccepted, setIsOfferAccepted] = useState<boolean>(false);
     const [error, setError] = useState<string>('');
+    const [httpError, setHttpError] = useState<string>('');
 
     const validateAmount = (value: string): boolean => {
         if (!value) return false;
@@ -125,20 +34,31 @@ function PaymentForm() {
 
         const payload = { value: amount };
         try {
-            const response = await fetch('http://localhost:5065/api/payment/create', {
+            const response = await fetch('/api/payment/create', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(payload),
-            })
-                .then(res => res.json());
+            });
 
-            window.location.replace(response.confirmationUrl);
-        } catch (error) {
-            console.error('Error:', error);
+            const message = handleResponseStatus(response);
+            if (message) {
+                showHttpError(message);
+                return;
+            }
+
+            const data = await response.json();
+            window.location.replace(data.confirmationUrl);
+        } catch {
+            setError('Непредвиденная ошибка');
         }
     };
+
+    const showHttpError = (message: string) => {
+        setHttpError(message)
+        setTimeout(() => {setHttpError('')}, 5000)
+    }
 
     const handleCardClick = (amount: string) => {
         setSelectedAmount(amount);
@@ -196,7 +116,11 @@ function PaymentForm() {
                         }`}
                         required
                     />
-                    <p className="text-red-500 text-sm mt-1">{error}&nbsp;</p>
+                    <p className="text-red-500 text-sm mt-1">
+                        <span>{error}</span>
+                        <span>{httpError}</span>
+                        &nbsp;
+                    </p>
                 </div>
 
                 <button

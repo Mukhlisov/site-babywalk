@@ -1,26 +1,13 @@
 import {useState, FormEvent, ChangeEvent} from 'react';
+import {usePathname} from 'next/navigation';
 import {handleResponseStatus} from "@/app/utils/response-status-hadnler";
 
 export function PaymentForm() {
     const [selectedAmount, setSelectedAmount] = useState<string>('');
     const [isOfferAccepted, setIsOfferAccepted] = useState<boolean>(false);
     const [error, setError] = useState<string>('');
-    const [httpError, setHttpError] = useState<string>('');
-
-    const validateAmount = (value: string): boolean => {
-        if (!value) return false;
-        const num = parseFloat(value);
-        if (isNaN(num)) {
-            setError('Пожалуйста, введите числовое значение');
-            return false;
-        }
-        if (num < 10) {
-            setError('Минимальная сумма - 10 рублей');
-            return false;
-        }
-        setError('');
-        return true;
-    };
+    const [httpError, setHttpErrorMessage] = useState<string>('');
+    const pathname = usePathname();
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -29,51 +16,37 @@ export function PaymentForm() {
             return;
         }
 
-        const amount = selectedAmount;
-        if (!validateAmount(amount)) return;
+        const error = GetErrorByValue(selectedAmount);
+        if (error) {
+            setError(error);
+            return;
+        }
 
-        const payload = { value: amount };
         try {
-            const response = await fetch('/api/payment/create', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(payload),
-            });
-
-            const message = handleResponseStatus(response);
-            if (message) {
-                showHttpError(message);
-                return;
-            }
-
-            const data = await response.json();
-            window.location.replace(data.confirmationUrl);
+            const result = await SendCreatePaymentRequest({value : selectedAmount, pathname : pathname});
+            if (!result.message)
+                window.location.replace(result.confirmUrl);
+            else
+                showHttpErrorMessage(result.message);
         } catch {
             setError('Непредвиденная ошибка');
         }
     };
 
-    const showHttpError = (message: string) => {
-        setHttpError(message)
-        setTimeout(() => {setHttpError('')}, 5000)
+    const showHttpErrorMessage = (message: string) => {
+        setHttpErrorMessage(message)
+        setTimeout(() => {setHttpErrorMessage('')}, 5000)
     }
 
-    const handleCardClick = (amount: string) => {
-        setSelectedAmount(amount);
-        setError('');
-    };
+    const handleCardClick = (amount: string) => setSelectedAmount(amount);
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value.replace(/[^0-9]/g, '');
         setSelectedAmount(value);
-        validateAmount(value);
+        setError(GetErrorByValue(value));
     };
 
-    const handleCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setIsOfferAccepted(e.target.checked);
-    };
+    const handleCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => setIsOfferAccepted(e.target.checked);
 
     return (
         <div className="max-w-md mx-auto p-4">
@@ -159,4 +132,33 @@ export function PaymentForm() {
             </form>
         </div>
     );
+}
+
+async function SendCreatePaymentRequest(payload : NewPaymentPayload) : Promise<{message : string, confirmUrl : string}> {
+    const response = await fetch('/api/payment/create', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+    });
+
+    const message = handleResponseStatus(response);
+    const data = await response.json();
+    return {message : message, confirmUrl : data.confirmationUrl};
+}
+
+function GetErrorByValue(value : string) : string{
+    if (!value) return 'Заполните поле';
+    const num = parseFloat(value);
+    if (isNaN(num))
+        return 'Пожалуйста, введите числовое значение';
+    if (num < 10)
+        return 'Минимальная сумма - 10 рублей';
+    return '';
+}
+
+interface NewPaymentPayload{
+    value : string,
+    pathname : string,
 }

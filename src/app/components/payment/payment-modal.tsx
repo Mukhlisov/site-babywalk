@@ -13,8 +13,8 @@ export default function PaymentWidget() {
             window.history.pushState({ modalOpen: true }, '');
 
         const handlePopState = () => {
-            if (isOpen)
-                setIsOpen(false);
+            if (!isOpen) return;
+            setIsOpen(false);
         };
 
         window.addEventListener('popstate', handlePopState);
@@ -26,24 +26,22 @@ export default function PaymentWidget() {
     }, [isOpen]);
 
     const openModal = () => {
-        if (!isOpen) {
-            setIsOpen(true);
-        }
+        if (isOpen) return;
+        setIsOpen(true);
     }
 
     const closeModal = () => {
-        if (isOpen) {
-            setIsOpen(false);
-            if (window.history.state?.modalOpen) {
-                window.history.back();
-            }
+        if (!isOpen) return;
+        setIsOpen(false);
+        if (window.history.state?.modalOpen) {
+            window.history.back();
         }
     }
 
     return(
         <div className="flex flex-row justify-end md:justify-center items-center">
-            <button className={`p-1 px-2 rounded-sm bg-lime-700 text-zinc-50
-                    md:text-zinc-950 md:bg-transparent md:px-3 md:rounded-md md:hover:text-zinc-50 md:hover:bg-lime-700
+            <button className={`p-1 px-2 rounded-sm bg-lime-700 text-zinc-50 text-sm
+                    md:text-zinc-950 md:bg-transparent md:px-3 md:rounded-md md:hover:text-zinc-50 md:hover:bg-lime-700 md:text-base
                     active:scale-105
                     transition-all duration-300 ease-in-out`}
                     onClick={openModal}

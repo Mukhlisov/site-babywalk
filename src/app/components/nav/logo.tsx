@@ -10,6 +10,7 @@ export default function BabyWalkLogo() {
                     src="/nav-logo-dark.png"
                     width={250}
                     height={75}
+                    priority
                     alt="АНО Движение детям"
                 />
             </Link>

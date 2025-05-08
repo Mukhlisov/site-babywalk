@@ -1,6 +1,7 @@
 import {useState, FormEvent, ChangeEvent} from 'react';
 import {usePathname} from 'next/navigation';
 import {handleResponseStatus} from "@/app/utils/response-status-hadnler";
+import {mainAddress} from "@/app/utils/main-address";
 
 export function PaymentForm() {
     const [selectedAmount, setSelectedAmount] = useState<string>('');
@@ -120,7 +121,7 @@ export function PaymentForm() {
                     />
                     <label htmlFor="offer" className="text-sm text-pretty">
                         Я принимаю условия&nbsp;
-                        <a href="/static/docs/public-offer.pdf" className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">
+                        <a href={mainAddress +  "/static/docs/public-offer.pdf"} className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">
                             публичной оферты
                         </a>
                         &nbsp;и&nbsp;

@@ -1,6 +1,7 @@
 ﻿import Link from "next/link";
 import {ChevronsRight} from 'lucide-react';
 import Image from "next/image";
+import {mainAddress} from "@/app/utils/main-address";
 
 export default function Programs() {
     const props: ProgramCardProps[] = [
@@ -30,7 +31,7 @@ function ProgramCard(prop: ProgramCardProps) {
         >
             <div className="py-1">
                 <Image
-                    src={"/static" + prop.src}
+                    src={mainAddress +  "/static" + prop.src}
                     alt={prop.alt}
                     width={250}
                     height={250}

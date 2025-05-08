@@ -5,6 +5,7 @@ import {useState} from 'react';
 
 import 'react-pdf/dist/Page/TextLayer.css';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
+import {mainAddress} from "@/app/utils/main-address";
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
     'pdfjs-dist/build/pdf.worker.min.mjs',
@@ -25,7 +26,7 @@ export default function PDFViewer({filename}: PdfViewerProps) {
         setError('Не удалось загрузить документ. Попробуйте скачать файл.');
     };
 
-    const src = "/static/docs/" + filename;
+    const src = mainAddress +  "/static/docs/" + filename;
 
     return (
         <div className={"flex flex-col"}>

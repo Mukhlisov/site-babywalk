@@ -2,6 +2,7 @@
 import Image from "next/image"
 import Title from "@/app/components/programs/program-title";
 import {VideoSeminar} from "@/app/components/programs/education";
+import {mainAddress} from "@/app/utils/main-address";
 
 export default function Page() {
     return (
@@ -11,7 +12,7 @@ export default function Page() {
                 <div className="h-[280px] w-full max-w-[400px] relative shadow-lg rounded-lg overflow-hidden">
                     <Image
                         fill
-                        src={"/static/education-1.jpg"}
+                        src={mainAddress + "/static/education-1.jpg"}
                         alt={"education"}
                         className="absolute object-cover"
                     />

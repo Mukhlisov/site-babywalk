@@ -5,7 +5,7 @@ export default function Custom404() {
         <div className="flex items-center justify-center h-screen">
             <div className="flex flex-col items-center justify-center">
                 <Image className="pb-5"
-                    src="/404.svg"
+                    src="/static/404.svg"
                     width={120}
                     height={120}
                     alt="404 Not Found"

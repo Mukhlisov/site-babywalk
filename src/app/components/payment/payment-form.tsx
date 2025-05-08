@@ -120,7 +120,7 @@ export function PaymentForm() {
                     />
                     <label htmlFor="offer" className="text-sm text-pretty">
                         Я принимаю условия&nbsp;
-                        <a href="/docs/public-offer.pdf" className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">
+                        <a href="/static/docs/public-offer.pdf" className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">
                             публичной оферты
                         </a>
                         &nbsp;и&nbsp;

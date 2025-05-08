@@ -25,7 +25,7 @@ export default function PDFViewer({filename}: PdfViewerProps) {
         setError('Не удалось загрузить документ. Попробуйте скачать файл.');
     };
 
-    const src = "/docs/" + filename;
+    const src = "/static/docs/" + filename;
 
     return (
         <div className={"flex flex-col"}>

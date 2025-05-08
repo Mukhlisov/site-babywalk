@@ -11,7 +11,7 @@ export default function Page() {
                 <div className="h-[280px] w-full max-w-[400px] relative shadow-lg rounded-lg overflow-hidden">
                     <Image
                         fill
-                        src={"/education-1.jpg"}
+                        src={"/static/education-1.jpg"}
                         alt={"education"}
                         className="absolute object-cover"
                     />

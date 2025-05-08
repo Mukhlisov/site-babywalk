@@ -78,7 +78,7 @@ export default function PaymentWidget() {
                         </h4>
                         <div className={"flex justify-center items-center my-auto"}>
                             <Image
-                                src={"/payment-qr.jpg"}
+                                src={"/static/payment-qr.jpg"}
                                 alt={"payment-qr"}
                                 width={225}
                                 height={225}

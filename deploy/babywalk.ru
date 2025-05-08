@@ -22,6 +22,14 @@ server {
 
     # add_header Strict-Transport-Security "max-age=63072000" always;
 
+    location /static {
+        root /;
+        expires 3h;
+        add_header Cache-Control "public, max-age=10800";
+        access_log off;
+        try_files $uri /$uri =404;
+    }
+
     location /api {
         proxy_pass http://payment/api;
         proxy_set_header Host $host;

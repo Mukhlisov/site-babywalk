@@ -7,7 +7,7 @@ export default function BabyWalkLogo() {
         <div className="flex justify-center">
             <Link href="/">
                 <Image
-                    src="/nav-logo-dark.png"
+                    src="/static/nav-logo-dark.png"
                     width={250}
                     height={75}
                     priority

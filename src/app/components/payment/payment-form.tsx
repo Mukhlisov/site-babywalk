@@ -29,7 +29,7 @@ export function PaymentForm() {
             else
                 showHttpErrorMessage(result.message);
         } catch {
-            setError('Непредвиденная ошибка');
+            showHttpErrorMessage('В данный момент сервис не доступен')
         }
     };
 
@@ -38,7 +38,10 @@ export function PaymentForm() {
         setTimeout(() => {setHttpErrorMessage('')}, 5000)
     }
 
-    const handleCardClick = (amount: string) => setSelectedAmount(amount);
+    const handleCardClick = (amount: string) => {
+        setSelectedAmount(amount);
+        setError(GetErrorByValue(amount));
+    }
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value.replace(/[^0-9]/g, '');
@@ -91,6 +94,7 @@ export function PaymentForm() {
                     />
                     <p className="text-red-500 text-sm mt-1">
                         <span>{error}</span>
+                        &nbsp;
                         <span>{httpError}</span>
                         &nbsp;
                     </p>

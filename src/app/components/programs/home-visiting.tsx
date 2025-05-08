@@ -5,21 +5,21 @@ export function ImagesPC_Main() {
     return (
         <div className="relative basis-1/3 hidden xl:inline-block">
             <Image
-                src={"/home-visiting-img-2.jpg"}
+                src={"/static/home-visiting-img-2.jpg"}
                 alt={"img"}
                 width={240}
                 height={240}
                 className="absolute rounded-lg shadow-2xl shadow-zinc-950"
             />
             <Image
-                src={"/home-visiting-img-1.jpg"}
+                src={"/static/home-visiting-img-1.jpg"}
                 alt={"img"}
                 width={240}
                 height={240}
                 className="absolute translate-x-[76%] translate-y-[76%] rounded-lg shadow-2xl shadow-zinc-950"
             />
             <Image
-                src={"/home-visiting-img-3.jpg"}
+                src={"/static/home-visiting-img-3.jpg"}
                 alt={"img"}
                 width={240}
                 height={240}
@@ -33,21 +33,21 @@ export function ImagesPhone_Main() {
     return (
         <div className="flex flex-col gap-1 shrink justify-between xl:hidden">
             <Image
-                src={"/home-visiting-img-2.jpg"}
+                src={"/static/home-visiting-img-2.jpg"}
                 alt={"img"}
                 width={110}
                 height={110}
                 className="rounded-lg"
             />
             <Image
-                src={"/home-visiting-img-1.jpg"}
+                src={"/static/home-visiting-img-1.jpg"}
                 alt={"img"}
                 width={110}
                 height={110}
                 className="rounded-lg"
             />
             <Image
-                src={"/home-visiting-img-3.jpg"}
+                src={"/static/home-visiting-img-3.jpg"}
                 alt={"img"}
                 width={110}
                 height={110}
@@ -104,10 +104,10 @@ export function VideoGallery() {
 
 export function ImageGallery() {
     const images = [
-        <Image key={0} src={"/home-visiting-img-6.jpg"} alt="image" width={400} height={400} className="shadow-xl rounded-lg"/>,
-        <Image key={1} src={"/home-visiting-img-7.jpg"} alt="image" width={400} height={400} className="shadow-xl rounded-lg"/>,
-        <Image key={2} src={"/home-visiting-img-8.jpg"} alt="image" width={400} height={400} className="shadow-xl rounded-lg"/>,
-        <Image key={3} src={"/home-visiting-img-9.jpg"} alt="image" width={400} height={400} className="shadow-xl rounded-lg"/>,
+        <Image key={0} src={"/static/home-visiting-img-6.jpg"} alt="image" width={400} height={400} className="shadow-xl rounded-lg"/>,
+        <Image key={1} src={"/static/home-visiting-img-7.jpg"} alt="image" width={400} height={400} className="shadow-xl rounded-lg"/>,
+        <Image key={2} src={"/static/home-visiting-img-8.jpg"} alt="image" width={400} height={400} className="shadow-xl rounded-lg"/>,
+        <Image key={3} src={"/static/home-visiting-img-9.jpg"} alt="image" width={400} height={400} className="shadow-xl rounded-lg"/>,
     ];
 
     const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
@@ -120,14 +120,14 @@ export function ImageGallery() {
         <div className="flex flex-col flex-wrap gap-8">
             <div className="flex flex-row flex-wrap gap-2">
                 <Image
-                    src="/home-visiting-img-4.jpg"
+                    src="/static/home-visiting-img-4.jpg"
                     alt="img"
                     width={1280}
                     height={853}
                     className="w-[350px] h-auto rounded-lg mx-auto"
                 />
                 <Image
-                    src="/home-visiting-img-5.jpg"
+                    src="/static/home-visiting-img-5.jpg"
                     alt="img"
                     width={1280}
                     height={853}

@@ -4,7 +4,8 @@ export default function BackgroundImage() {
     return (
         <div className="fixed inset-0 -z-10 hidden md:block">
             <Image
-                src="/background.jpg"
+                id={"document-bg"}
+                src="/static/background.jpg"
                 alt="Background"
                 fill
                 className="object-cover object-center blur-[4px]"

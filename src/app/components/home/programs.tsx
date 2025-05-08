@@ -30,7 +30,7 @@ function ProgramCard(prop: ProgramCardProps) {
         >
             <div className="py-1">
                 <Image
-                    src={prop.src}
+                    src={"/static" + prop.src}
                     alt={prop.alt}
                     width={250}
                     height={250}

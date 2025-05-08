@@ -4,7 +4,10 @@ services:
     expose:
       - "3000"
     volumes:
-      - ..:/app
+      - ../node_modules:/app/node_modules
+      - ../public:/app/public
+      - ../package.json:/app/package.json
+      - ~/front/.next:/app/.next
     restart: always
   nginx:
     build: .
@@ -19,4 +22,13 @@ services:
       - ~/dhparam:/etc/nginx/dhparam:ro
     depends_on:
       - frontend
+    restart: always
+  yandex-kassa:
+    build: ../../yookassa-service
+    env_file:
+      - .env
+    expose:
+      - "5000"
+    volumes:
+      - ~/logs:/logs
     restart: always

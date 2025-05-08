@@ -20,6 +20,7 @@ services:
       - /etc/letsencrypt/live/babywalk.ru/privkey.pem:/etc/nginx/ssl/privkey.pem:ro
       - ./sites-available:/etc/nginx/sites-available
       - ~/dhparam:/etc/nginx/dhparam:ro
+      - ~/static:/static
     depends_on:
       - frontend
     restart: always

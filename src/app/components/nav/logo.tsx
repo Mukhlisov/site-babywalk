@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import {mainAddress} from "@/app/utils/main-address";
 
 // 900 x 265 (55, 185)
 export default function BabyWalkLogo() {
@@ -8,7 +7,7 @@ export default function BabyWalkLogo() {
         <div className="flex justify-center">
             <Link href="/">
                 <Image
-                    src={mainAddress + "/static/nav-logo-dark.png"}
+                    src={"/nav-logo-dark.png"}
                     width={250}
                     height={75}
                     priority

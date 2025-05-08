@@ -1,17 +1,16 @@
 ﻿import Image from "next/image";
-import {mainAddress} from "@/app/utils/main-address";
 
 export default function Custom404() {
     return (
         <div className="flex items-center justify-center h-screen">
             <div className="flex flex-col items-center justify-center">
                 <Image className="pb-5"
-                    src={mainAddress + "/static/404.svg"}
+                    src={"/404.svg"}
                     width={120}
                     height={120}
                     alt="404 Not Found"
                 />
-                <p className="text-3xl text-center">We are sorry, but this page does not exist...</p>
+                <p className="text-3xl text-center">По данному пути нет страницы...</p>
             </div>
         </div>
     );

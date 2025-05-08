@@ -1,6 +1,5 @@
 import {EMailLink, PhoneLink, TgChannelLink, VkLink, YouTubeLink} from "@/app/components/footer/contact-links";
 import Link from "next/link";
-import {mainAddress} from "@/app/utils/main-address";
 
 export function Documents(){
     return(
@@ -9,7 +8,7 @@ export function Documents(){
                 Документы:
             </p>
             <div className="flex flex-col gap-4">
-                <a className="underline" href={mainAddress + "/static/docs/public-offer.pdf"} target="_blank" rel="noopener noreferrer">Публичная оферта</a>
+                <a className="underline" href={"/docs/public-offer.pdf"} target="_blank" rel="noopener noreferrer">Публичная оферта</a>
                 <a className="underline" href="" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a>
                 <Link className="underline" href="/documents">Учредительные документы</Link>
             </div>

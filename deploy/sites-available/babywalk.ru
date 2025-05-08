@@ -17,7 +17,7 @@ server {
 
 	location / {
 		return 301 https://$host$request_uri;
-        }
+    }
 }
 server {
 	#listen 80;
@@ -26,16 +26,19 @@ server {
 
 	http2 on;
 	ssl_certificate /etc/nginx/ssl/fullchain.pem;
-        ssl_certificate_key /etc/nginx/ssl/privkey.pem;
+    ssl_certificate_key /etc/nginx/ssl/privkey.pem;
 
-        add_header Strict-Transport-Security "max-age=63072000" always;
+    add_header Strict-Transport-Security "max-age=63072000" always;
 
-    location /static {
-         root /;
-         expires 3h;
-         add_header Cache-Control "public, max-age=10800";
-         access_log off;
-         try_files $uri $uri/ =404;
+    location ~* \.(jpg|jpeg|png|gif|ico|svg|mp4|webm|ogg)$ {
+        proxy_pass http://frontend;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        expires 5m;
+        add_header Cache-Control "public, must-revalidate";
     }
 
     location /api {

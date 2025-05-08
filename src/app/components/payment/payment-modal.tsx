@@ -3,7 +3,6 @@ import {FixModalOpen} from "@/app/utils/modal-helper";
 import {X} from "lucide-react";
 import Image from "next/image";
 import {PaymentForm} from "@/app/components/payment/payment-form";
-import {mainAddress} from "@/app/utils/main-address";
 
 export default function PaymentWidget() {
     const [isOpen, setIsOpen] = useState(false);
@@ -79,7 +78,7 @@ export default function PaymentWidget() {
                         </h4>
                         <div className={"flex justify-center items-center my-auto"}>
                             <Image
-                                src={mainAddress + "/static/payment-qr.jpg"}
+                                src={"/payment-qr.jpg"}
                                 alt={"payment-qr"}
                                 width={225}
                                 height={225}

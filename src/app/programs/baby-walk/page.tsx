@@ -1,4 +1,4 @@
-import Title from "@/app/components/programs/program-title";
+import Title from "@/app/programs/components/program-title";
 
 export default function Page() {
     return (

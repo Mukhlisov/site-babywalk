@@ -5,8 +5,8 @@ import {
     ImagesPhone_Main,
     ListHomeVisiting,
     VideoGallery
-} from "@/app/components/programs/home-visiting";
-import Title from "@/app/components/programs/program-title";
+} from "@/app/programs/home-visiting/components/home-visiting";
+import Title from "@/app/programs/components/program-title";
 
 export default function Page() {
     return (

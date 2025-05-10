@@ -1,11 +1,11 @@
 import type {Metadata} from "next";
 import {panton} from '@/app/ui/fonts';
 import BackgroundImage from '@/app/components/background';
-import ThanksMessage from "@/app/components/modals/thanks-message";
+import ThanksMessage from "@/app/components/modals/thanks/thanks-message";
 
 import "@/app/ui/globals.css";
-import Navbar from "@/app/components/nav/nav-bar";
 import Footer from "@/app/components/footer/footer";
+import {HeaderWrapper} from "@/app/components/header/header-wrapper";
 
 export const metadata: Metadata = {
     title: "АНО Движение детям",
@@ -16,7 +16,7 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
     return (
         <html lang="ru">
         <body className={`${panton.className} antialiased text-zinc-950 text-base`}>
-        <Navbar/>
+        <HeaderWrapper/>
         <ThanksMessage/>
         <div className="relative min-h-screen flex justify-center">
             <BackgroundImage/>

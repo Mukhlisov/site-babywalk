@@ -24,9 +24,9 @@ export function EMailLink() {
 export function VkLink() {
     return (
         <div className="flex flex-row gap-1">
-            Страница ВК:
-            <a href="https://vk.com/baby_walk18" target="_blank" rel="noopener noreferrer" className="underline ml-1">
-                @baby_walk18
+            Сообщество ВК:
+            <a href="https://vk.com/babywalk18" target="_blank" rel="noopener noreferrer" className="underline ml-1">
+                vk.com/babywalk18
             </a>
         </div>
     );

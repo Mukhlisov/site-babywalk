@@ -6,8 +6,10 @@ export default function Footer() {
             <div className="flex flex-col md:grid md:grid-cols-2 gap-y-1 md:gap-y-6">
                 <ContactLinks/>
                 <Documents/>
+                <div className="flex col-span-2 justify-center">
+                    <DetailsOrg/>
+                </div>
             </div>
-            <DetailsOrg/>
         </footer>
     );
 }

@@ -2,7 +2,6 @@
 import {
     ImageGallery,
     ImagesPC_Main,
-    ImagesPhone_Main,
     ListHomeVisiting, ProgramEntry,
     VideoGallery
 } from "@/app/components/programs/home-visiting";

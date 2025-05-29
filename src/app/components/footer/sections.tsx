@@ -9,7 +9,7 @@ export function Documents(){
             </p>
             <div className="flex flex-col gap-4">
                 <a className="underline" href={"/docs/public-offer.pdf"} target="_blank" rel="noopener noreferrer">Публичная оферта</a>
-                <a className="underline" href="" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a>
+                <a className="underline" href={"/docs/privacy-policy.pdf"} target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a>
                 <Link className="underline" href="/documents">Учредительные документы</Link>
             </div>
         </div>

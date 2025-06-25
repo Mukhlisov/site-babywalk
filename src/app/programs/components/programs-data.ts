@@ -7,7 +7,7 @@ export interface ProgramsData {
 
 export const programsData: ProgramsData[] = [
     {
-        entry : 'Служба домашнего визитирования (длительное ведение семьи)',
+        entry : 'Проект «Патронаж»',
         alt : 'Home Visiting',
         src : '/home-visiting.jpg',
         link : '/programs/home-visiting'
@@ -24,10 +24,10 @@ export const programsData: ProgramsData[] = [
         src : '/education.jpeg',
         link : '/programs/education'
     },
-    {
+    /*{
         entry : 'Аренда и ремонт технических средств реабилитации',
         alt : 'Technical means of rehabilitation',
         src : '/tmr.jpg',
         link : '/programs/tmr'
-    },
+    },*/
 ];

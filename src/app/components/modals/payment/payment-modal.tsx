@@ -75,8 +75,9 @@ export default function PaymentWidget() {
                     >
                         <h4 className={"md:text-lg text-center text-pretty"}>
                             Или отсканируйте из приложения банка
+                            <p className={'mt-2'}>Пожертвование</p>
                         </h4>
-                        <div className={"flex justify-center items-center my-auto"}>
+                        <div className={"flex justify-center items-center p-4"}>
                             <Image
                                 src={"/payment-qr.jpg"}
                                 alt={"payment-qr"}

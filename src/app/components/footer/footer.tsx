@@ -1,4 +1,4 @@
-﻿import {ContactLinks, DetailsAccount, DetailsOrg, Documents} from "@/app/components/footer/sections";
+﻿import {ContactLinks, DetailsOrg, Documents} from "@/app/components/footer/sections";
 
 export default function Footer() {
     return (
@@ -6,10 +6,9 @@ export default function Footer() {
             <div className="flex flex-col md:grid md:grid-cols-2 gap-y-1 md:gap-y-6">
                 <ContactLinks/>
                 <Documents/>
-                <div className="mt-8 md:mt-0">
+                <div className="flex col-span-2 justify-center">
                     <DetailsOrg/>
                 </div>
-                <DetailsAccount/>
             </div>
         </footer>
     );

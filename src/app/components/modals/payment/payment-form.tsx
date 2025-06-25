@@ -128,8 +128,8 @@ export function PaymentForm() {
                             публичной оферты
                         </a>
                         &nbsp;и&nbsp;
-                        <a href="" className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">
-                            политики персональных данных
+                        <a href={"/docs/privacy-policy.pdf"} className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">
+                            политики конфиденциальности
                         </a>
                     </label>
                 </div>

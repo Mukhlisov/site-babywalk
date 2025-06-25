@@ -4,13 +4,13 @@ import {
     ImagesPC_Main,
     ListHomeVisiting, ProgramEntry,
     VideoGallery
-} from "@/app/programs/home-visiting/components/home-visiting";
+} from "@/app/programs/patronage/components/home-visiting";
 import Title from "@/app/programs/components/program-title";
 
 export default function Page() {
     return (
         <div>
-            <Title title="Служба домашнего визитирования"/>
+            <Title title="Проект «Патронаж»"/>
             <div className="flex flex-row flex-wrap gap-x-4 md:gap-x-12 px-2 my-8">
                 <div className={"flex flex-col gap-4 lg:basis-3/5"}>
                     <ListHomeVisiting/>

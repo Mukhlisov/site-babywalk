@@ -8,9 +8,9 @@ export interface ProgramsData {
 export const programsData: ProgramsData[] = [
     {
         entry : 'Проект «Патронаж»',
-        alt : 'Home Visiting',
+        alt : 'Patronage project',
         src : '/home-visiting.jpg',
-        link : '/programs/home-visiting'
+        link : '/programs/patronage'
     },
     {
         entry: 'Движение BabyWalk Удмуртия',

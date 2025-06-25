@@ -1,7 +1,7 @@
 import type {Metadata} from "next";
 import {panton} from '@/app/ui/fonts';
 import BackgroundImage from '@/app/components/background';
-import ThanksMessage from "@/app/components/modals/thanks-message";
+import ThanksMessage from "@/app/components/modals/thanks/thanks-message";
 
 import "@/app/ui/globals.css";
 import Navbar from "@/app/components/nav/nav-bar";

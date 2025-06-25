@@ -1,7 +1,7 @@
 'use client'
 import Image from "next/image"
-import Title from "@/app/components/programs/program-title";
-import {VideoSeminar} from "@/app/components/programs/education";
+import Title from "@/app/programs/components/program-title";
+import {VideoSeminar} from "@/app/programs/education/components/education";
 
 export default function Page() {
     return (

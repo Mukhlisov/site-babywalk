@@ -1,14 +1,14 @@
 import {useEffect, useState} from "react";
-import {FixModalOpen} from "@/app/utils/modal-helper";
+// import {FixModalOpen} from "@/app/components/modals/modal-helper";
 import {X} from "lucide-react";
 import Image from "next/image";
-import {PaymentForm} from "@/app/components/payment/payment-form";
+import {PaymentForm} from "@/app/components/modals/payment/payment-form";
 
 export default function PaymentWidget() {
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-        FixModalOpen(isOpen);
+        // FixModalOpen(isOpen);
         if (isOpen)
             window.history.pushState({ modalOpen: true }, '');
 
@@ -20,7 +20,7 @@ export default function PaymentWidget() {
         window.addEventListener('popstate', handlePopState);
 
         return () => {
-            FixModalOpen(false);
+            // FixModalOpen(false);
             window.removeEventListener('popstate', handlePopState);
         };
     }, [isOpen]);
@@ -41,9 +41,9 @@ export default function PaymentWidget() {
     return(
         <div className="flex flex-row justify-end md:justify-center items-center">
             <button className={`p-1 px-2 rounded-sm bg-lime-700 text-zinc-50 text-sm
-                    md:text-zinc-950 md:bg-transparent md:px-3 md:rounded-md md:hover:text-zinc-50 md:hover:bg-lime-700 md:text-base
+                    md:text-zinc-950 md:bg-transparent md:px-3 md:rounded-lg md:hover:text-zinc-50 md:hover:bg-lime-700 md:text-base
                     active:scale-105
-                    transition-all duration-300 ease-in-out`}
+                    transition-all duration-200 ease-in-out`}
                     onClick={openModal}
             >
                 Помочь

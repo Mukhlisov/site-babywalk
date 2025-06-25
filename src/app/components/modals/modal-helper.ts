@@ -1,5 +1,5 @@
 export function FixModalOpen(flag : boolean){
-    const nav = document.getElementById("top-nav");
+    const nav = document.getElementById("header");
     const bg = document.getElementById("document-bg");
     if (flag){
         document.body.style.overflow = 'hidden';

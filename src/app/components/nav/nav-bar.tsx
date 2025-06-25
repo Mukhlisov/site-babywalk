@@ -2,7 +2,7 @@
 
 import BabyWalkLogo from "@/app/components/nav/logo";
 import {PcNavArea, PhoneNavArea} from "@/app/components/nav/nav-area";
-import PaymentWidget from "@/app/components/payment/payment-modal";
+import PaymentWidget from "@/app/components/modals/payment/payment-modal";
 
 export default function Navbar() {
 

@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {ChevronDown, Menu, X} from 'lucide-react';
+import {Menu, X} from 'lucide-react';
 import {usePathname} from "next/navigation";
 import Link from "next/link";
 import clsx from 'clsx';
@@ -15,7 +15,7 @@ const navTabs = [
 
 export function PcNavArea() {
     const path = usePathname();
-    const { isRevealed, toggleMenu } = useMenu();
+    // const { isRevealed, toggleMenu } = useMenu();
 
     return (
         <div className="hidden lg:flex justify-center">
@@ -31,7 +31,7 @@ export function PcNavArea() {
                         {item.entry}
                     </Link>
                 ))}
-                <button className={`${path.includes('programs') ? 
+                {/*<button className={`${path.includes('programs') ?
                                     'bg-lime-700 text-zinc-50 active:bg-lime-600' : 
                                     'hover:bg-zinc-200'
                                     }
@@ -41,7 +41,7 @@ export function PcNavArea() {
                 >
                     <span>Программы</span>
                     <ChevronDown size={20} className={`${isRevealed ? 'rotate-180' : 'rotate-0'} transform duration-200 ease-in-out`}/>
-                </button>
+                </button>*/}
             </nav>
         </div>
     );

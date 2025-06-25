@@ -1,7 +1,7 @@
 import BabyWalkLogo from "@/app/components/header/logo";
 import {PcNavArea, PhoneNavArea} from "@/app/components/header/nav-area";
 import PaymentWidget from "@/app/components/modals/payment/payment-modal";
-import {ProgramsNav} from "@/app/components/header/programs-nav";
+// import {ProgramsNav} from "@/app/components/header/programs-nav";
 
 export default function Header() {
     return (
@@ -14,9 +14,10 @@ export default function Header() {
                 <BabyWalkLogo/>
                 <PaymentWidget/>
             </div>
+            {/* Navigation for pc version
             <div className={`absolute hidden lg:block w-1/2 z-10`}>
                 <ProgramsNav/>
-            </div>
+            </div>*/}
         </header>
     );
 }

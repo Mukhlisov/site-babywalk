@@ -11,6 +11,10 @@ export default function Page() {
                 <h2 className={"py-4 text-3xl text-center font-bold"}>Свидетельство о гос. регистрации</h2>
                 <PDFViewer filename={"state-registration.pdf"}/>
             </div>
+            <div className={"p-4"}>
+                <h2 className={"py-4 text-3xl text-center font-bold"}>Свидетельство о постановке на учет</h2>
+                <PDFViewer filename={"certificate-of-registration.pdf"}/>
+            </div>
         </div>
     );
 }

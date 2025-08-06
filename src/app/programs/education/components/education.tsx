@@ -13,11 +13,18 @@ export function VideoSeminar() {
             </h3>
             <div className={"w-full aspect-video relative overflow-hidden rounded-xl shadow-xl"}>
                 <iframe
+                    src="https://vk.com/video_ext.php?oid=-230586604&id=456239025&hd=2"
+                    allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+                    allowFullScreen
+                    className="absolute w-full h-full"
+                >
+                </iframe>
+                {/*<iframe
                     src="https://rutube.ru/play/embed/04d4e30abd558e0e64c435e84370f4ba"
                     allow="accelerometer; autoplay; clipboard-write; picture-in-picture"
                     allowFullScreen
                     className={"absolute w-full h-full"}
-                />
+                />*/}
             </div>
             <aside className="bg-zinc-100 rounded-lg my-8 p-4 shadow-xl">
                 <ul className={"list-none text-pretty flex flex-col gap-1"}>

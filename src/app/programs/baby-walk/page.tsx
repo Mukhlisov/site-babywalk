@@ -7,7 +7,8 @@ export default function Page() {
             <Title title={"Движение BabyWalk Удмуртия"}/>
             <div className="px-2 my-8">
                 <div className="py-4 p-4 bg-zinc-100 shadow-lg rounded-lg text-pretty">
-                    <div className={'flex flex-col gap-y-4'}>
+                    <h3 className={"text-2xl md:text-3xl"}>Беги со мной</h3>
+                    <div className={'flex flex-col gap-y-4 mt-4'}>
                         <p className={"text-pretty"}>
                             19 июля 2025 года в 19:00 на набережной г. Ижевск состоится трогательный и вдохновляющий забег для детей с ограниченными возможностями здоровья.
                         </p>

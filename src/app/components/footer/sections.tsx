@@ -11,6 +11,7 @@ export function Documents(){
                 <a className="underline" href={"/docs/public-offer.pdf"} target="_blank" rel="noopener noreferrer">Публичная оферта</a>
                 <a className="underline" href={"/docs/privacy-policy.pdf"} target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a>
                 <Link className="underline" href="/documents">Учредительные документы</Link>
+                <Link className="underline" href="/reports">Отчеты</Link>
             </div>
         </div>
     );
@@ -28,6 +29,15 @@ export function ContactLinks(){
                 <YouTubeLink/>
                 <PhoneLink/>
                 <EMailLink/>
+                <div>
+                    <p className='mb-2'>
+                        Юридический/почтовый адрес:
+                    </p>
+                    <p>
+                        427433 Удмуртская Республика,<br/>
+                        г. Воткинск, ул. Дзержинского, д.7
+                    </p>
+                </div>
             </div>
         </div>
     );

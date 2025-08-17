@@ -33,7 +33,7 @@ function ProgramCard({entry, alt, src, link} : ProgramsData) {
             </div>
             <div className="relative">
                 <div
-                    className="absolute flex justify-center -translate-x-1/2 h-full min-w-[55px] bg-lime-700 -skew-x-[0.20rad] shrink">
+                    className="absolute flex justify-center -translate-x-1/2 h-full min-w-[55px] bg-primary -skew-x-[0.20rad] shrink">
                     <div className="w-2 h-full bg-zinc-50 -skew-x-6"/>
                 </div>
                 <div className="flex items-end justify-end h-full max-w-[250px] bg-zinc-100 p-4">
@@ -41,7 +41,7 @@ function ProgramCard({entry, alt, src, link} : ProgramsData) {
                         <p className="text-end text-pretty text-sm md:text-base">
                             {entry}
                         </p>
-                        <ChevronsRight size={24} color="white" className="bg-lime-700 rounded-sm p-1"/>
+                        <ChevronsRight size={24} color="white" className="bg-primary rounded-sm p-1"/>
                     </div>
                 </div>
             </div>

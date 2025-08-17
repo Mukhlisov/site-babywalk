@@ -1,5 +1,5 @@
-﻿export default function Page() {
-    return (
-        <div>Скоро здесь появятся новости</div>
-    );
+﻿import {notFound} from "next/navigation";
+
+export default function Page() {
+    return notFound();
 }

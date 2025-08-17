@@ -14,10 +14,6 @@ export default function Header() {
                 <BabyWalkLogo/>
                 <PaymentWidget/>
             </div>
-            {/* Navigation for pc version
-            <div className={`absolute hidden lg:block w-1/2 z-10`}>
-                <ProgramsNav/>
-            </div>*/}
         </header>
     );
 }

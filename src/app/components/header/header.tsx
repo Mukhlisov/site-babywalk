@@ -1,7 +1,6 @@
 import BabyWalkLogo from "@/app/components/header/logo";
 import {PcNavArea, PhoneNavArea} from "@/app/components/header/nav-area";
 import PaymentWidget from "@/app/components/modals/payment/payment-modal";
-// import {ProgramsNav} from "@/app/components/header/programs-nav";
 
 export default function Header() {
     return (

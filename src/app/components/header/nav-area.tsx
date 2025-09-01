@@ -8,14 +8,12 @@ import {ProgramsNav} from "@/app/components/header/programs-nav";
 
 const navTabs = [
     {entry : 'На главную', link : '/'},
-    //{entry : 'Новости', link : '/news'},
     {entry : 'Контакты', link : '#contacts'},
     {entry : 'Документы', link : '#docs'}
 ];
 
 export function PcNavArea() {
     const path = usePathname();
-    // const { isRevealed, toggleMenu } = useMenu();
 
     return (
         <div className="hidden lg:flex justify-center">
@@ -31,17 +29,6 @@ export function PcNavArea() {
                         {item.entry}
                     </Link>
                 ))}
-                {/*<button className={`${path.includes('programs') ?
-                                    'bg-lime-700 text-zinc-50 active:bg-lime-600' : 
-                                    'hover:bg-zinc-200'
-                                    }
-                                    px-2 transition duration-150 flex flex-row items-center gap-1
-                                    `}
-                        onClick={toggleMenu}
-                >
-                    <span>Программы</span>
-                    <ChevronDown size={20} className={`${isRevealed ? 'rotate-180' : 'rotate-0'} transform duration-200 ease-in-out`}/>
-                </button>*/}
             </nav>
         </div>
     );

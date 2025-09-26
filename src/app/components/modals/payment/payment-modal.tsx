@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-// import {FixModalOpen} from "@/app/components/modals/modal-helper";
+import {FixModalOpen} from "@/app/components/modals/modal-helper";
 import {X} from "lucide-react";
 import Image from "next/image";
 
@@ -7,7 +7,7 @@ export default function PaymentWidget() {
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-        // FixModalOpen(isOpen);
+        FixModalOpen(isOpen);
         if (isOpen)
             window.history.pushState({ modalOpen: true }, '');
 
@@ -19,7 +19,7 @@ export default function PaymentWidget() {
         window.addEventListener('popstate', handlePopState);
 
         return () => {
-            // FixModalOpen(false);
+            FixModalOpen(false);
             window.removeEventListener('popstate', handlePopState);
         };
     }, [isOpen]);

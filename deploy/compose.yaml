@@ -23,12 +23,3 @@ services:
     depends_on:
       - frontend
     restart: always
-  yandex-kassa:
-    build: ../../yookassa-service
-    env_file:
-      - .env
-    expose:
-      - "5000"
-    volumes:
-      - ~/logs:/logs
-    restart: always

@@ -19,7 +19,7 @@ export const programsData: ProgramsData[] = [
         link : '/programs/baby-walk'
     },
     {
-        entry : 'Образовательная деятельность в области реабилитации',
+        entry : 'Просвятительская деятельность в области реабилитации',
         alt : 'Education',
         src : '/education.jpeg',
         link : '/programs/education'

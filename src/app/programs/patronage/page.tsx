@@ -9,7 +9,6 @@ import Title from "@/app/programs/components/program-title";
 import {notFound} from "next/navigation";
 
 export default function Page() {
-    return notFound();
     return (
         <div>
             <Title title="Проект «Патронаж»"/>

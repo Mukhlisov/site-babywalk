@@ -23,7 +23,7 @@ export function ProgramsNav() {
                       href={data.link}
                       className={`block lg:text-lg text-pretty px-4 py-2
                                 ${path === data.link ? 
-                                'bg-lime-700 text-zinc-50' : 
+                                'bg-primary-green text-zinc-50' : 
                                 'bg-transparent lg:hover:bg-zinc-200 active:bg-zinc-200'
                                 }
                                 transition-colors duration-200 ease-in-out

@@ -1,8 +1,8 @@
 import type {Metadata} from "next";
-import {zapusSans} from "@/app/ui/fonts";
+import {zapusSans} from "@/app/styles/fonts";
 import BackgroundImage from "@/app/components/background";
 
-import "@/app/ui/globals.css";
+import "@/app/styles/globals.css";
 import Footer from "@/app/components/footer/footer";
 import {HeaderWrapper} from "@/app/components/header/header-wrapper";
 
@@ -18,7 +18,7 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
         <HeaderWrapper/>
         <div className="relative min-h-screen flex justify-center">
             <BackgroundImage/>
-            <div className="relative w-full md:w-3/4 bg-zinc-50 pt-[50px] md:pt-[90px]">
+            <div className="relative w-full md:w-3/4 bg-zinc-50 pt-12.5 md:pt-22.5">
                 {children}
             </div>
         </div>

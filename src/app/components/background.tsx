@@ -8,7 +8,7 @@ export default function BackgroundImage() {
                 src={"/background.jpg"}
                 alt="Background"
                 fill
-                className="object-cover object-center blur-[4px]"
+                className="object-cover object-center blur-xs"
                 sizes="100vh"
                 priority
             />

@@ -20,7 +20,7 @@ export default function Programs() {
 
 function ProgramCard({entry, alt, src, link} : ProgramsData) {
     return (
-        <Link className="flex flex-row min-w-[200px] pt-4 transition duration-150 ease-linear hover:scale-[101%] active:scale-105"
+        <Link className="flex flex-row min-w-50 pt-4 transition duration-150 ease-linear hover:scale-[101%] active:scale-105"
               href={link}
         >
             <div className="py-1">
@@ -33,15 +33,15 @@ function ProgramCard({entry, alt, src, link} : ProgramsData) {
             </div>
             <div className="relative">
                 <div
-                    className="absolute flex justify-center -translate-x-1/2 h-full min-w-[55px] bg-primary -skew-x-[0.20rad] shrink">
+                    className="absolute flex justify-center -translate-x-1/2 h-full min-w-13.75 bg-primary-green -skew-x-[0.20rad] shrink">
                     <div className="w-2 h-full bg-zinc-50 -skew-x-6"/>
                 </div>
-                <div className="flex items-end justify-end h-full max-w-[250px] bg-zinc-100 p-4">
+                <div className="flex items-end justify-end h-full max-w-62.5 bg-zinc-100 p-4">
                     <div className="flex flex-col items-end gap-1 w-[85%]">
                         <p className="text-end text-pretty text-sm md:text-base">
                             {entry}
                         </p>
-                        <ChevronsRight size={24} color="white" className="bg-primary rounded-sm p-1"/>
+                        <ChevronsRight size={24} color="white" className="bg-primary-green rounded-sm p-1"/>
                     </div>
                 </div>
             </div>

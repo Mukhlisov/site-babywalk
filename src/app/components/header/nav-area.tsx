@@ -22,7 +22,7 @@ export function PcNavArea() {
                     <Link
                         key={index}
                         href={item.link}
-                        className={`${path === item.link ? 'bg-primary text-zinc-50' : 'hover:bg-zinc-200'} 
+                        className={`${path === item.link ? 'bg-primary-green text-zinc-50' : 'hover:bg-zinc-200'} 
                                     p-2 transition duration-200 flex items-center
                                     `}
                     >
@@ -92,7 +92,7 @@ export function PhoneNavArea() {
                             href={item.link}
                             onClick={toggleClose}
                             className={`${path === item.link ? 
-                                        'bg-primary text-zinc-50' : 
+                                        'bg-primary-green text-zinc-50' : 
                                         'bg-transparent active:bg-zinc-200'} 
                                         transition-colors duration-200 ease-in-out
                                         block px-4 py-2
@@ -102,7 +102,7 @@ export function PhoneNavArea() {
                         </Link>
                     ))}
                     <button className={`${path.includes('programs') ?
-                                        'bg-primary text-zinc-50 active:bg-lime-600':
+                                        'bg-primary-green text-zinc-50 active:bg-lime-600':
                                         'bg-transparent active:bg-zinc-200'
                                         }
                                         transition-colors duration-200 ease-in-out

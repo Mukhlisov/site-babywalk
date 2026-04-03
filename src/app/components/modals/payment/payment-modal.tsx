@@ -39,7 +39,7 @@ export default function PaymentWidget() {
 
     return(
         <div className="flex flex-row justify-end md:justify-center items-center">
-            <button className={`p-1 px-2 md:p-2 rounded-sm bg-primary text-zinc-50 text-sm md:text-base md:hover:bg-lime-600 
+            <button className={`p-1 px-2 md:p-2 rounded-sm bg-primary-green text-zinc-50 text-sm md:text-base md:hover:bg-lime-600 
                     active:scale-105
                     transition-all duration-200 ease-in-out`}
                     onClick={openModal}

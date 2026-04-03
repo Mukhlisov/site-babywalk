@@ -43,7 +43,7 @@ export default function About() {
                 </motion.div>
 
                 <button
-                    className="flex items-center gap-2 mx-auto p-1 rounded-lg transition"
+                    className="flex items-center cursor-pointer gap-2 mx-auto p-1 rounded-lg transition"
                     onClick={() => setIsOpen(!isOpen)}
                 >
                     {isOpen ? "Скрыть" : "Подробнее"}

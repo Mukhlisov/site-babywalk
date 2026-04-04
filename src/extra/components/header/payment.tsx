@@ -26,6 +26,8 @@ export default function Payments() {
     return (isMobile ? <PaymentPageButton/> : <PaymentWidget/>);
 }
 
+// Используем тег <a> вместо <Link>, потому что после загрузки страницы её надо перезагрузить.
+// Link делал бесшовный переход, и страница загружалась без виджетов mixplat
 const PaymentPageButton = () => (
     <div className="flex flex-row justify-end md:justify-center">
         <a className={`p-1 px-2 md:p-2 rounded-sm bg-primary-green text-zinc-50 text-sm md:text-base hover:bg-lime-600 

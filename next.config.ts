@@ -5,7 +5,8 @@ const nextConfig: NextConfig = {
         resolveAlias: {
             canvas: "./empty-module.ts"
         }
-    }
+    },
+    allowedDevOrigins: ['192.168.1.191'],
 };
 
 export default nextConfig;

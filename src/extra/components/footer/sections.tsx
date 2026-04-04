@@ -1,4 +1,4 @@
-import {EMailLink, PhoneLink, TgChannelLink, VkLink, YouTubeLink} from "@/app/components/footer/contact-links";
+import {EMailLink, PhoneLink, TgChannelLink, VkLink, YouTubeLink} from "@/extra/components/footer/contact-links";
 import Link from "next/link";
 
 export function Documents(){

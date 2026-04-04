@@ -2,7 +2,7 @@
 import dynamic from "next/dynamic";
 
 const DynamicPdfViewer = dynamic(
-    () => import("../components/pdf-viewer"),
+    () => import("@/extra/components/pdf-viewer"),
     { ssr: false }
 )
 

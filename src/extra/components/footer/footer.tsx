@@ -1,4 +1,4 @@
-﻿import {ContactLinks, DetailsOrg, Documents} from "@/app/components/footer/sections";
+﻿import {ContactLinks, DetailsOrg, Documents} from "@/extra/components/footer/sections";
 
 export default function Footer() {
     return (

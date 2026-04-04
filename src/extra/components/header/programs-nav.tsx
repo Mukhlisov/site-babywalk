@@ -1,6 +1,6 @@
 import {motion} from "framer-motion";
 import {programsData} from "@/app/programs/components/programs-data";
-import {useMenu} from "@/app/components/header/menu-context";
+import {useMenu} from "@/extra/components/header/menu-context";
 import Link from "next/link";
 import {usePathname} from "next/navigation";
 

@@ -1,4 +1,4 @@
-import {statusCodes} from "@/app/components/modals/payment/utils/status-codes";
+import {statusCodes} from "@/extra/components/modals/payment/utils/status-codes";
 
 export function handleResponseStatus(response : Response) : string {
     if (response.status >= 500) return 'Сервис недоступен, повторите попытку позже';

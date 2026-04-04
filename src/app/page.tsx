@@ -1,6 +1,6 @@
 'use client'
-import Programs from "@/app/components/home/programs";
-import About from "@/app/components/home/about";
+import Programs from "@/extra/components/home/programs";
+import About from "@/extra/components/home/about";
 
 export default function Home() {
     return (

@@ -1,6 +1,6 @@
-import BabyWalkLogo from "@/app/components/header/logo";
-import {PcNavArea, PhoneNavArea} from "@/app/components/header/nav-area";
-import PaymentWidget from "@/app/components/modals/payment/payment-modal";
+import BabyWalkLogo from "@/extra/components/header/logo";
+import {PcNavArea, PhoneNavArea} from "@/extra/components/header/nav-area";
+import Payments from "@/extra/components/header/payment";
 
 export default function Header() {
     return (
@@ -11,7 +11,7 @@ export default function Header() {
                     <PhoneNavArea/>
                 </div>
                 <BabyWalkLogo/>
-                <PaymentWidget/>
+                <Payments/>
             </div>
         </header>
     );

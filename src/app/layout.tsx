@@ -1,10 +1,10 @@
 import type {Metadata} from "next";
-import {zapusSans} from "@/app/styles/fonts";
-import BackgroundImage from "@/app/components/background";
+import {zapusSans} from "@/extra/styles/fonts";
+import BackgroundImage from "@/extra/components/background";
 
-import "@/app/styles/globals.css";
-import Footer from "@/app/components/footer/footer";
-import {HeaderWrapper} from "@/app/components/header/header-wrapper";
+import "@/extra/styles/globals.css";
+import Footer from "@/extra/components/footer/footer";
+import {HeaderWrapper} from "@/extra/components/header/header-wrapper";
 
 export const metadata: Metadata = {
     title: "АНО Движение детям",

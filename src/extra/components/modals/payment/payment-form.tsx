@@ -1,6 +1,6 @@
 import {useState, FormEvent, ChangeEvent} from 'react';
 import {usePathname} from 'next/navigation';
-import {handleResponseStatus} from "@/app/components/modals/payment/utils/response-status-hadnler";
+import {handleResponseStatus} from "@/extra/components/modals/payment/utils/response-status-hadnler";
 
 export function PaymentForm() {
     const [selectedAmount, setSelectedAmount] = useState<string>('');

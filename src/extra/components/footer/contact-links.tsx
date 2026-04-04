@@ -1,4 +1,4 @@
-﻿import {Telegram, Viber, WhatsUp, YouTube} from "@/app/components/footer/custom-icons";
+﻿import {Telegram, Viber, WhatsUp, YouTube} from "@/extra/components/footer/custom-icons";
 import {Mail} from "lucide-react";
 
 export function PhoneLink() {

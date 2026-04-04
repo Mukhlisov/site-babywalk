@@ -3,8 +3,8 @@ import {Menu, X} from 'lucide-react';
 import {usePathname} from "next/navigation";
 import Link from "next/link";
 import clsx from 'clsx';
-import {useMenu} from "@/app/components/header/menu-context";
-import {ProgramsNav} from "@/app/components/header/programs-nav";
+import {useMenu} from "@/extra/components/header/menu-context";
+import {ProgramsNav} from "@/extra/components/header/programs-nav";
 
 const navTabs = [
     {entry : 'На главную', link : '/'},

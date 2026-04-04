@@ -8,7 +8,7 @@ export default function Page() {
         <div>
             <Title title={"Просвятительская деятельность в области реабилитации"}/>
             <div className="flex flex-row flex-wrap justify-evenly px-2 my-8">
-                <div className="h-[280px] w-full max-w-[400px] relative shadow-lg rounded-lg overflow-hidden">
+                <div className="h-70 w-full max-w-100 relative shadow-lg rounded-lg overflow-hidden">
                     <Image
                         fill
                         src={"/education-1.jpg"}

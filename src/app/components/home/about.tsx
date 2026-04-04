@@ -18,7 +18,7 @@ export default function About() {
                     animate={isOpen ? { height: "auto", opacity: 1 } : { height: 100, opacity: 1 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className={`overflow-hidden relative ${!isOpen ? 
-                        "after:absolute after:bottom-0 after:left-0 after:w-full after:h-16 after:bg-gradient-to-b " +
+                        "after:absolute after:bottom-0 after:left-0 after:w-full after:h-16 after:bg-linear-to-b " +
                         "after:from-transparent after:to-zinc-50" : ""}`}
                 >
                     <p>

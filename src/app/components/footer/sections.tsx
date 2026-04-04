@@ -81,4 +81,3 @@ export function DetailsAccount(){
         </div>
     );
 }
-/*7707083893*/

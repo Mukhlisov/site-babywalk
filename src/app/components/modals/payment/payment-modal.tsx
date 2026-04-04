@@ -57,7 +57,7 @@ export default function PaymentWidget() {
 
                     <section className={'flex flex-row flex-wrap justify-start gap-4 mt-6'}>
                         {/*From*/}
-                        <div className={'w-[440px]'} id='1097bb56-b272-4282-bb82-e48a9c898929' data-type='mixplat-form'/>
+                        <div className={'w-110'} id='1097bb56-b272-4282-bb82-e48a9c898929' data-type='mixplat-form'/>
                         {/*QR*/}
                         <div className={'hidden md:block'}>
                             <Image src="https://qr.donation.ru/qr/15689/IlPI7moI_main.svg" alt="Donation.ru" width={300} height={300} className={'rounded-3xl'}/>

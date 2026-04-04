@@ -4,7 +4,7 @@ import {
     ImagesPC_Main,
     ListHomeVisiting, ProgramEntry,
     VideoGallery
-} from "@/app/programs/patronage/components/home-visiting";
+} from "@/app/programs/patronage/components/patronage";
 import Title from "@/app/programs/components/program-title";
 import {notFound} from "next/navigation";
 

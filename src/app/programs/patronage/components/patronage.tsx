@@ -56,7 +56,7 @@ export function ImagesPhone_Main() {
     });
 
     return (
-        <div className="relative w-full h-[300px] flex justify-center items-center xl:hidden overflow-hidden" {...handlers}>
+        <div className="relative w-full h-75 flex justify-center items-center xl:hidden overflow-hidden" {...handlers}>
             <div className="relative w-full h-full flex justify-center items-center">
                 {images.map((src, index) => {
                     const isCurrent = index === currentIndex;
@@ -92,7 +92,7 @@ export function ImagesPhone_Main() {
                             alt={`carousel-img-${index}`}
                             width={240}
                             height={250}
-                            className="absolute w-[60%] h-[250px] object-cover rounded-lg shadow-lg"
+                            className="absolute w-[60%] h-62.5 object-cover rounded-lg shadow-lg"
                             style={{
                                 transform: `${transform} scale(${scale})`,
                                 opacity,
@@ -174,7 +174,7 @@ export function VideoGallery() {
                 <div key={index} className="mx-auto">
                     <video
                         controls
-                        className="h-[40vh] md:h-[450px] w-auto object-contain rounded-lg shadow-lg"
+                        className="h-[40vh] md:h-112.5 w-auto object-contain rounded-lg shadow-lg"
                         preload="metadata"
                     >
                         <source src={video.src} type="video/mp4"/>
@@ -208,14 +208,14 @@ export function ImageGallery() {
                     alt="img"
                     width={1280}
                     height={853}
-                    className="w-[350px] h-auto rounded-lg mx-auto"
+                    className="w-87.5 h-auto rounded-lg mx-auto"
                 />
                 <Image
                     src={"/home-visiting-img-5.jpg"}
                     alt="img"
                     width={1280}
                     height={853}
-                    className="w-[350px] h-auto rounded-lg mx-auto"
+                    className="w-87.5 h-auto rounded-lg mx-auto"
                 />
             </div>
             <div className="flex justify-center relative">
@@ -224,7 +224,7 @@ export function ImageGallery() {
                         <div key={index}
                              onClick={() => handleImageClick(index)}
                              className={`${expandedIndex === index ? "opacity-100 w-full h-auto" : "opacity-0 w-0 h-0"}
-                             transition-all duration-[400ms] ease-out
+                             transition-all duration-400 ease-out
                              `}
                         >
                             {image}
@@ -235,7 +235,7 @@ export function ImageGallery() {
                     {images.map((image, index: number) => (
                         <div
                             key={index}
-                            className={`w-auto md:w-[280px]`}
+                            className={`w-auto md:w-70`}
                             onClick={() => handleImageClick(index)}
                         >
                             {image}

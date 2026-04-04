@@ -2,7 +2,6 @@
 
 import PaymentWidget from "@/extra/components/modals/payment/payment-modal";
 import {settings} from "@/extra/settings/settings";
-import Link from "next/link";
 import {useEffect, useState} from "react";
 
 export default function Payments() {
@@ -29,12 +28,13 @@ export default function Payments() {
 
 const PaymentPageButton = () => (
     <div className="flex flex-row justify-end md:justify-center">
-        <Link className={`p-1 px-2 md:p-2 rounded-sm bg-primary-green text-zinc-50 text-sm md:text-base hover:bg-lime-600 
+        <a className={`p-1 px-2 md:p-2 rounded-sm bg-primary-green text-zinc-50 text-sm md:text-base hover:bg-lime-600 
                     active:scale-105
                     transition-all duration-200 ease-in-out`}
               href={'/donation'}
+
         >
             Помочь
-        </Link>
+        </a>
     </div>
 );

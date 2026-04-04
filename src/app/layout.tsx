@@ -24,7 +24,9 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
             </div>
         </div>
         <Footer/>
-        <Script src="https://widgets.donation.ru/wloader/262e64fb-42ee-46b1-816e-af9b9763609d/wloader.js"/>
+        <Script src="https://widgets.donation.ru/wloader/262e64fb-42ee-46b1-816e-af9b9763609d/wloader.js"
+                strategy="afterInteractive"
+        />
         </body>
         </html>
     );

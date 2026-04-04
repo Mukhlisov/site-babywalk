@@ -6,7 +6,7 @@ import {VideoSeminar} from "@/app/programs/education/components/education";
 export default function Page() {
     return (
         <div>
-            <Title title={"Просвятительская деятельность в области реабилитации"}/>
+            <Title title={"Просветительская деятельность в области реабилитации"}/>
             <div className="flex flex-row flex-wrap justify-evenly px-2 my-8">
                 <div className="h-70 w-full max-w-100 relative shadow-lg rounded-lg overflow-hidden">
                     <Image

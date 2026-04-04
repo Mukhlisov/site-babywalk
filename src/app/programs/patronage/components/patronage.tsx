@@ -63,8 +63,8 @@ export function ImagesPhone_Main() {
                     const isPrev = index === (currentIndex - 1 + images.length) % images.length;
                     const isNext = index === (currentIndex + 1) % images.length;
 
-                    let transform = '';
-                    let zIndex = 0;
+                    let transform;
+                    let zIndex;
                     let opacity = 0.5;
                     let scale = 0.8;
 

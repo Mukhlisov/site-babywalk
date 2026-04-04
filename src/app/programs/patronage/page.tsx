@@ -6,7 +6,6 @@ import {
     VideoGallery
 } from "@/app/programs/patronage/components/patronage";
 import Title from "@/app/programs/components/program-title";
-import {notFound} from "next/navigation";
 
 export default function Page() {
     return (

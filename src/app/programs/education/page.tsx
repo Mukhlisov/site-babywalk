@@ -17,7 +17,7 @@ export default function Page() {
                     />
                     <div className="h-1/2 top-1/2 left-0 absolute p-4 bg-zinc-900/50 backdrop-blur-sm">
                         <p className="text-pretty text-zinc-50 md:text-lg">
-                            Организация и финанисрование обучения и повышения квалификации специалистов Республики,
+                            Организация и финансирование обучения и повышения квалификации специалистов Республики,
                             занятых в сфере реабилитации.
                         </p>
                     </div>

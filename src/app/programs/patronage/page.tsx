@@ -13,7 +13,7 @@ export default function Page() {
         <div>
             <Title title="Проект «Патронаж»"/>
             <div className="flex flex-row flex-wrap gap-x-4 md:gap-x-12 px-2 my-8">
-                <div className={"flex flex-col gap-4 lg:basis-3/5"}>
+                <div className={"flex flex-col gap-4 xl:basis-3/5"}>
                     <ListHomeVisiting/>
                     <ProgramEntry/>
                 </div>

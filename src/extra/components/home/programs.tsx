@@ -29,6 +29,7 @@ function ProgramCard({entry, alt, src, link} : ProgramsData) {
                     alt={alt}
                     width={250}
                     height={250}
+                    loading={"eager"}
                 />
             </div>
             <div className="relative">

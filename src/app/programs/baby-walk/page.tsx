@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Title from "@/app/programs/components/program-title";
+import NewsFeed from "@/extra/components/news/news-feed";
 
 export default function Page() {
     const marathonPhotos = ["/marathon/1.jpg", "/marathon/2.jpg", "/marathon/3.jpg", "/marathon/4.jpg"];
@@ -68,6 +69,7 @@ export default function Page() {
                     />
                 </div>
             </div>
+            <NewsFeed program="baby-walk"/>
         </div>
     );
 }

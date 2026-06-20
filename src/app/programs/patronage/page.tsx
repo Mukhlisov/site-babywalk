@@ -6,6 +6,7 @@ import {
     VideoGallery
 } from "@/app/programs/patronage/components/patronage";
 import Title from "@/app/programs/components/program-title";
+import NewsFeed from "@/extra/components/news/news-feed";
 
 export default function Page() {
     return (
@@ -28,6 +29,7 @@ export default function Page() {
                     <ImageGallery/>
                 </div>
             </div>
+            <NewsFeed program="patronage"/>
         </div>
     );
 }

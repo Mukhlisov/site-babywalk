@@ -2,6 +2,7 @@
 import Image from "next/image"
 import Title from "@/app/programs/components/program-title";
 import {VideoSeminar} from "@/app/programs/education/components/education";
+import NewsFeed from "@/extra/components/news/news-feed";
 
 export default function Page() {
     return (
@@ -24,6 +25,7 @@ export default function Page() {
                 </div>
                 <VideoSeminar/>
             </div>
+            <NewsFeed program="education"/>
         </div>
     );
 }

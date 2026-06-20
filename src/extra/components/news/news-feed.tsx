@@ -88,12 +88,15 @@ export default function NewsFeed({ program }: NewsFeedProps) {
                     void loadMore();
                 }
             },
-            { rootMargin: "200px" }
+            { rootMargin: "100px" }
         );
 
         observer.observe(sentinel);
         return () => observer.disconnect();
     }, [loadMore, isLoading]);
+
+    if (items.length === 0)
+        return <></>;
 
     return (
         <section className="px-2 my-8">
@@ -106,10 +109,6 @@ export default function NewsFeed({ program }: NewsFeedProps) {
 
                 {error && (
                     <p className="text-red-700">{error}</p>
-                )}
-
-                {!isLoading && !error && items.length === 0 && (
-                    <p className="text-zinc-600">Пока нет новостей в этом разделе.</p>
                 )}
 
                 {items.length > 0 && (

@@ -3,13 +3,16 @@
 import { useCallback, useRef, useState } from "react";
 import Masonry from "react-masonry-css";
 
-const breakpointColumns = {
-    default: 4,
-    1024: 2,
-    640: 1,
-};
+const MAX_COLUMNS_DEFAULT = 4;
+const MAX_COLUMNS_PHONE = 2;
 
-const ATTACHMENT_MAX_HEIGHT_PX = 448;
+function getBreakpointColumns(count: number) {
+    return {
+        default: Math.min(count, MAX_COLUMNS_DEFAULT),
+        1024: Math.min(count, MAX_COLUMNS_DEFAULT),
+        640: Math.min(count, MAX_COLUMNS_PHONE),
+    };
+}
 
 function AttachmentTile({ uri, index }: { uri: string; index: number }) {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -31,8 +34,7 @@ function AttachmentTile({ uri, index }: { uri: string; index: number }) {
         >
             <div
                 ref={containerRef}
-                className="relative overflow-hidden"
-                style={{ maxHeight: ATTACHMENT_MAX_HEIGHT_PX }}
+                className="relative overflow-hidden max-h-[430px] md:max-h-[720px]"
             >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -60,7 +62,7 @@ export default function NewsAttachments({ attachmentsUris }: { attachmentsUris: 
 
     return (
         <Masonry
-            breakpointCols={breakpointColumns}
+            breakpointCols={getBreakpointColumns(attachmentsUris.length)}
             className="flex w-auto gap-3"
             columnClassName="flex flex-col gap-3"
         >

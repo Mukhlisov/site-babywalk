@@ -19,7 +19,7 @@ export default function Page() {
                 </div>
                 <ImagesPC_Main/>
             </div>
-            <div className="px-2 mt-24">
+            <div className="px-2 mt-10">
                 <div className="py-4 p-4 bg-zinc-100 shadow-lg rounded-lg">
                     <VideoGallery/>
                 </div>

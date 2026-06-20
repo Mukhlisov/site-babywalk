@@ -1,5 +1,8 @@
 import Image from "next/image";
 import ImageGalleryGrid from "@/extra/components/gallery/image-gallery-grid";
+import { VideoGallery } from "@/app/programs/patronage/components/video-gallery";
+
+export { VideoGallery };
 
 export function ImagesPC_Main() {
     return (
@@ -97,32 +100,6 @@ export function ProgramEntry() {
                 </p>
             </div>
         </>
-    );
-}
-
-export function VideoGallery() {
-    const videos = [
-        {src: "/home-visiting-video-1.mp4"},
-        {src: "/home-visiting-video-2.mp4"},
-        {src: "/home-visiting-video-3.mp4"},
-        {src: "/home-visiting-video-4.mp4"},
-    ];
-
-    return (
-        <div className="flex flex-row flex-wrap gap-8 p-4">
-            {videos.map((video, index) => (
-                <div key={index} className="mx-auto">
-                    <video
-                        controls
-                        className="h-[40vh] md:h-112.5 w-auto object-contain rounded-lg shadow-lg"
-                        preload="metadata"
-                    >
-                        <source src={video.src} type="video/mp4"/>
-                        Ваш браузер не поддерживает видео.
-                    </video>
-                </div>
-            ))}
-        </div>
     );
 }
 

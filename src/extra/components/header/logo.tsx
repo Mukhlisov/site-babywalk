@@ -12,6 +12,7 @@ export default function BabyWalkLogo() {
                     height={75}
                     priority
                     alt="АНО Движение детям"
+                    className={"w-auto"}
                 />
             </Link>
         </div>

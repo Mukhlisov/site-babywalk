@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
     return (
-        <html lang="ru">
+        <html lang="ru" data-scroll-behavior="smooth">
         <body className={`${zapusSans.className} antialiased text-zinc-950 text-base`}>
         <HeaderWrapper/>
         <div className="relative min-h-screen flex justify-center">

@@ -29,7 +29,7 @@ export default async function NewsPage({ params }: NewsPageProps) {
                 className="inline-flex items-center gap-1 text-sm text-zinc-600 transition hover:text-primary-green mb-4"
             >
                 <ChevronLeft size={18} />
-                Назад к программе
+                На страницу программы
             </Link>
 
             <div className="py-4 p-4 md:p-8 bg-zinc-100 shadow-lg rounded-lg">

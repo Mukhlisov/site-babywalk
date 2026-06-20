@@ -32,7 +32,7 @@ function ProgramCard({ entry, alt, src, link }: ProgramsData) {
                     alt={alt}
                     width={CARD_IMAGE_SIZE}
                     height={CARD_IMAGE_SIZE}
-                    className="size-full object-cover"
+                    className="h-full w-auto object-cover"
                     loading="eager"
                 />
             </div>

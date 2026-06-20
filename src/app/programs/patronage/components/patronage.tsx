@@ -1,6 +1,5 @@
 import Image from "next/image";
-import {useState} from "react";
-import {useSwipeable} from "react-swipeable";
+import ImageGalleryGrid from "@/extra/components/gallery/image-gallery-grid";
 
 export function ImagesPC_Main() {
     return (
@@ -30,79 +29,20 @@ export function ImagesPC_Main() {
     );
 }
 
+const PHONE_MAIN_IMAGES = [
+    { src: "/home-visiting-img-1.jpg", alt: "Проект «Патронаж»" },
+    { src: "/home-visiting-img-2.jpg", alt: "Проект «Патронаж»" },
+    { src: "/home-visiting-img-3.jpg", alt: "Проект «Патронаж»" },
+] as const;
+
 export function ImagesPhone_Main() {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const images = [
-        "/home-visiting-img-1.jpg",
-        "/home-visiting-img-2.jpg",
-        "/home-visiting-img-3.jpg",
-    ];
-
-    const handleSwipe = (direction : string) => {
-        setCurrentIndex((prevIndex) => {
-            if (direction === "left") {
-                return (prevIndex + 1) % images.length;
-            } else {
-                return (prevIndex - 1 + images.length) % images.length;
-            }
-        });
-    };
-
-    const handlers = useSwipeable({
-        onSwipedLeft: () => handleSwipe("left"),
-        onSwipedRight: () => handleSwipe("right"),
-        trackMouse: true,
-        delta: 10, // Minimum swipe distance
-    });
-
     return (
-        <div className="relative w-full h-75 flex justify-center items-center xl:hidden overflow-hidden" {...handlers}>
-            <div className="relative w-full h-full flex justify-center items-center">
-                {images.map((src, index) => {
-                    const isCurrent = index === currentIndex;
-                    const isPrev = index === (currentIndex - 1 + images.length) % images.length;
-                    const isNext = index === (currentIndex + 1) % images.length;
-
-                    let transform;
-                    let zIndex;
-                    let opacity = 0.5;
-                    let scale = 0.8;
-
-                    if (isCurrent) {
-                        transform = 'translateX(0)';
-                        zIndex = 10;
-                        opacity = 1;
-                        scale = 1;
-                    } else if (isPrev) {
-                        transform = 'translateX(-60%)';
-                        zIndex = 5;
-                    } else if (isNext) {
-                        transform = 'translateX(60%)';
-                        zIndex = 5;
-                    } else {
-                        transform = 'translateX(0)';
-                        opacity = 0;
-                        zIndex = 0;
-                    }
-
-                    return (
-                        <Image
-                            key={src}
-                            src={src}
-                            alt={`carousel-img-${index}`}
-                            width={240}
-                            height={250}
-                            className="absolute w-[60%] h-62.5 object-cover rounded-lg shadow-lg"
-                            style={{
-                                transform: `${transform} scale(${scale})`,
-                                opacity,
-                                zIndex,
-                                transition: 'transform 0.5s ease-in-out',
-                            }}
-                        />
-                    );
-                })}
-            </div>
+        <div className="xl:hidden">
+            <ImageGalleryGrid
+                images={[...PHONE_MAIN_IMAGES]}
+                visibleLimit={2}
+                ariaLabel="Фотогалерея проекта «Патронаж»"
+            />
         </div>
     );
 }
@@ -186,63 +126,20 @@ export function VideoGallery() {
     );
 }
 
+const PATRONAGE_GALLERY_IMAGES = [
+    { src: "/home-visiting-img-4.jpg", alt: "Проект «Патронаж» — фото 1" },
+    { src: "/home-visiting-img-5.jpg", alt: "Проект «Патронаж» — фото 2" },
+    { src: "/home-visiting-img-6.jpg", alt: "Проект «Патронаж» — фото 3" },
+    { src: "/home-visiting-img-7.jpg", alt: "Проект «Патронаж» — фото 4" },
+    { src: "/home-visiting-img-8.jpg", alt: "Проект «Патронаж» — фото 5" },
+    { src: "/home-visiting-img-9.jpg", alt: "Проект «Патронаж» — фото 6" },
+] as const;
+
 export function ImageGallery() {
-    const images = [
-        <Image key={0} src={"/home-visiting-img-6.jpg"} alt="image" width={400} height={400} className="shadow-xl rounded-lg"/>,
-        <Image key={1} src={"/home-visiting-img-7.jpg"} alt="image" width={400} height={400} className="shadow-xl rounded-lg"/>,
-        <Image key={2} src={"/home-visiting-img-8.jpg"} alt="image" width={400} height={400} className="shadow-xl rounded-lg"/>,
-        <Image key={3} src={"/home-visiting-img-9.jpg"} alt="image" width={400} height={400} className="shadow-xl rounded-lg"/>,
-    ];
-
-    const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-    const handleImageClick = (index: number) => {
-        if (window.innerWidth > 800) return;
-        setExpandedIndex(prev => prev === index ? null : index);
-    }
-
     return (
-        <div className="flex flex-col flex-wrap gap-8">
-            <div className="flex flex-row flex-wrap gap-2">
-                <Image
-                    src={"/home-visiting-img-4.jpg"}
-                    alt="img"
-                    width={1280}
-                    height={853}
-                    className="w-87.5 h-auto rounded-lg mx-auto"
-                />
-                <Image
-                    src={"/home-visiting-img-5.jpg"}
-                    alt="img"
-                    width={1280}
-                    height={853}
-                    className="w-87.5 h-auto rounded-lg mx-auto"
-                />
-            </div>
-            <div className="flex justify-center relative">
-                <div className="flex md:hidden w-full h-0 p-4 absolute place-content-between">
-                    {images.map((image, index : number) => (
-                        <div key={index}
-                             onClick={() => handleImageClick(index)}
-                             className={`${expandedIndex === index ? "opacity-100 w-full h-auto" : "opacity-0 w-0 h-0"}
-                             transition-all duration-400 ease-out
-                             `}
-                        >
-                            {image}
-                        </div>
-                    ))}
-                </div>
-                <div className={`grid grid-cols-2 gap-4 p-4 w-auto aspect-square bg-zinc-50 rounded-lg`}>
-                    {images.map((image, index: number) => (
-                        <div
-                            key={index}
-                            className={`w-auto md:w-70`}
-                            onClick={() => handleImageClick(index)}
-                        >
-                            {image}
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </div>
+        <ImageGalleryGrid
+            images={[...PATRONAGE_GALLERY_IMAGES]}
+            ariaLabel="Фотогалерея проекта «Патронаж»"
+        />
     );
 }

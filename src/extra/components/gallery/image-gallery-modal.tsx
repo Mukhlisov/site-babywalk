@@ -5,12 +5,18 @@ import { useSwipeable } from "react-swipeable";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { FixModalOpen } from "@/extra/components/modals/modal-helper";
 
-type AttachmentsGalleryProps = {
-    uris: string[];
+export type GalleryImage = {
+    src: string;
+    alt?: string;
+};
+
+type ImageGalleryModalProps = {
+    images: GalleryImage[];
     currentIndex: number;
     onIndexChangeAction: (index: number) => void;
     isOpen: boolean;
     onCloseAction: () => void;
+    ariaLabel?: string;
 };
 
 function clampIndex(index: number, length: number): number {
@@ -18,14 +24,16 @@ function clampIndex(index: number, length: number): number {
     return ((index % length) + length) % length;
 }
 
-export default function AttachmentsGallery({
-    uris,
+export default function ImageGalleryModal({
+    images,
     currentIndex,
     onIndexChangeAction,
     isOpen,
     onCloseAction,
-}: AttachmentsGalleryProps) {
-    const safeIndex = clampIndex(currentIndex, uris.length);
+    ariaLabel = "Галерея изображений",
+}: ImageGalleryModalProps) {
+    const safeIndex = clampIndex(currentIndex, images.length);
+    const currentImage = images[safeIndex];
 
     useEffect(() => {
         FixModalOpen(isOpen);
@@ -33,12 +41,12 @@ export default function AttachmentsGallery({
     }, [isOpen]);
 
     const goToPrevious = useCallback(() => {
-        onIndexChangeAction(clampIndex(safeIndex - 1, uris.length));
-    }, [onIndexChangeAction, safeIndex, uris.length]);
+        onIndexChangeAction(clampIndex(safeIndex - 1, images.length));
+    }, [onIndexChangeAction, safeIndex, images.length]);
 
     const goToNext = useCallback(() => {
-        onIndexChangeAction(clampIndex(safeIndex + 1, uris.length));
-    }, [onIndexChangeAction, safeIndex, uris.length]);
+        onIndexChangeAction(clampIndex(safeIndex + 1, images.length));
+    }, [onIndexChangeAction, safeIndex, images.length]);
 
     useEffect(() => {
         if (!isOpen) return;
@@ -47,15 +55,15 @@ export default function AttachmentsGallery({
             if (event.key === "Escape") {
                 onCloseAction();
             } else if (event.key === "ArrowLeft") {
-                onIndexChangeAction(clampIndex(safeIndex - 1, uris.length));
+                onIndexChangeAction(clampIndex(safeIndex - 1, images.length));
             } else if (event.key === "ArrowRight") {
-                onIndexChangeAction(clampIndex(safeIndex + 1, uris.length));
+                onIndexChangeAction(clampIndex(safeIndex + 1, images.length));
             }
         };
 
         window.addEventListener("keydown", handleKeyDown);
         return () => window.removeEventListener("keydown", handleKeyDown);
-    }, [isOpen, onCloseAction, onIndexChangeAction, safeIndex, uris.length]);
+    }, [isOpen, onCloseAction, onIndexChangeAction, safeIndex, images.length]);
 
     const swipeHandlers = useSwipeable({
         onSwipedLeft: goToNext,
@@ -65,16 +73,16 @@ export default function AttachmentsGallery({
         preventScrollOnSwipe: true,
     });
 
-    if (!isOpen || uris.length === 0) return null;
+    if (!isOpen || images.length === 0 || !currentImage) return null;
 
-    const hasMultiple = uris.length > 1;
+    const hasMultiple = images.length > 1;
 
     return (
         <div
             className="fixed inset-0 z-50 flex items-center justify-center bg-zinc-950/90 p-4"
             role="dialog"
             aria-modal="true"
-            aria-label="Галерея вложений"
+            aria-label={ariaLabel}
             onClick={onCloseAction}
         >
             <button
@@ -120,8 +128,8 @@ export default function AttachmentsGallery({
             >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                    src={uris[safeIndex]}
-                    alt={`Вложение ${safeIndex + 1} из ${uris.length}`}
+                    src={currentImage.src}
+                    alt={currentImage.alt ?? `Изображение ${safeIndex + 1} из ${images.length}`}
                     className="max-h-[85dvh] max-w-[94vw] object-contain"
                     draggable={false}
                 />
@@ -129,7 +137,7 @@ export default function AttachmentsGallery({
 
             {hasMultiple && (
                 <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-sm text-zinc-300">
-                    {safeIndex + 1} / {uris.length}
+                    {safeIndex + 1} / {images.length}
                 </p>
             )}
         </div>

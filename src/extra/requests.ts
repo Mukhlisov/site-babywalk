@@ -1,5 +1,5 @@
 const API_BASE = (() => {
-    const rawUrl = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:5000/api/v1";
+    const rawUrl = process.env.NEXT_PUBLIC_API_URL ?? "http://192.168.1.210:5000/api/v1";
     const withProtocol = /^https?:\/\//.test(rawUrl) ? rawUrl : `http://${rawUrl}`;
     return withProtocol.replace(/\/$/, "");
 })();

@@ -1,11 +1,21 @@
-const API_BASE = (() => {
-    const rawUrl = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:5000/api/v1";
+function normalizeApiBase(rawUrl: string): string {
     if (rawUrl.startsWith("/")) {
         return rawUrl.replace(/\/$/, "");
     }
     const withProtocol = /^https?:\/\//.test(rawUrl) ? rawUrl : `http://${rawUrl}`;
     return withProtocol.replace(/\/$/, "");
-})();
+}
+
+function getApiBase(): string {
+    if (typeof window === "undefined") {
+        const internalUrl =
+            process.env.API_INTERNAL_URL ?? "http://news-feed:8080/api/v1";
+        return normalizeApiBase(internalUrl);
+    }
+
+    const publicUrl = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:5000/api/v1";
+    return normalizeApiBase(publicUrl);
+}
 
 export type News = {
     id: string;
@@ -65,7 +75,7 @@ async function handleResponse<T>(response: Response): Promise<T> {
 }
 
 export async function sendGetNewsRequest(skip = 0, take = 5): Promise<News[]> {
-    const response = await fetch(`${API_BASE}/news${buildPaginationQuery({ skip, take })}`, {
+    const response = await fetch(`${getApiBase()}/news${buildPaginationQuery({ skip, take })}`, {
         method: "GET",
         headers: getJsonHeaders(),
         cache: "no-store",
@@ -80,7 +90,7 @@ export async function sendGetNewsByProgramRequest(
     take = 5
 ): Promise<News[]> {
     const response = await fetch(
-        `${API_BASE}/news/${encodeURIComponent(program)}${buildPaginationQuery({ skip, take })}`,
+        `${getApiBase()}/news/${encodeURIComponent(program)}${buildPaginationQuery({ skip, take })}`,
         {
             method: "GET",
             headers: getJsonHeaders(),
@@ -97,7 +107,7 @@ export function parseEditorJsBody(body: string): EditorJsOutput {
 }
 
 export async function sendGetNewsByIdRequest(id: string): Promise<NewsDto | null> {
-    const response = await fetch(`${API_BASE}/news/${encodeURIComponent(id)}`, {
+    const response = await fetch(`${getApiBase()}/news/${encodeURIComponent(id)}`, {
         method: "GET",
         headers: getJsonHeaders(),
         cache: "no-store",

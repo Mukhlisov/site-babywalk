@@ -3,9 +3,7 @@ import { notFound } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
 import EditorJsRenderer from "@/extra/components/news/editor-js-renderer";
 import NewsAttachments from "@/extra/components/news/news-attachments";
-import { formatNewsDate } from "@/extra/components/news/format-news-date";
 import { parseEditorJsBody, sendGetNewsByIdRequest } from "@/extra/requests";
-import { convertToJSTickFromCsharpTick } from "@/extra/ticks-converter";
 
 type NewsPageProps = {
     params: Promise<{ newsId: string }>;
@@ -44,13 +42,6 @@ export default async function NewsPage({ params }: NewsPageProps) {
                         <NewsAttachments attachmentsUris={news.attachmentsUris} />
                     </div>
                 )}
-
-                <div className="mt-8 pt-4 border-t border-zinc-300 text-xs text-zinc-500 flex flex-col gap-1">
-                    <span>Создано: {formatNewsDate(convertToJSTickFromCsharpTick(news.creationTime))}</span>
-                    {news.updateTime !== news.creationTime && (
-                        <span>Изменено: {formatNewsDate(convertToJSTickFromCsharpTick(news.updateTime))}</span>
-                    )}
-                </div>
             </div>
         </article>
     );

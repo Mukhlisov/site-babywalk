@@ -5,13 +5,28 @@ export default function Page() {
                 Отчеты
             </h3>
             <div className={'p-6 flex flex-col gap-4'}>
-                <h6 className={'text-lg'}>
-                    Уважаемые жертвователи!
-                </h6>
-                <p>
-                    Поскольку АНО «Движение детям»зарегистрирована в текущем 2025 году, то в соответствии
-                    с законодательством РФ ближайший финансовый отчёт будет опубликован до 15 апреля 2026 года.
-                </p>
+                <table className={'overflow-hidden rounded-lg shadow-lg'}>
+                    <thead>
+                        <tr className={'bg-primary-green text-white'}>
+                            <td className={'px-6 py-3 font-semibold'}>Год</td>
+                            <td className={'px-6 py-3 font-semibold'}>Ссылка на отчёт</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr className={'bg-zinc-100 transition hover:bg-zinc-200'}>
+                            <td className={'px-6 py-3'}>2025</td>
+                            <td className={'px-6 py-3'}>
+                                <a
+                                    href={'/docs/reports/NCO-Reoirt-2025.pdf'}
+                                    download
+                                    className={'font-medium text-primary-green underline underline-offset-2 transition hover:text-zinc-900'}
+                                >
+                                    Скачать отчёт
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     );

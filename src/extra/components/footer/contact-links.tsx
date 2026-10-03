@@ -7,7 +7,7 @@ export function PhoneLink() {
             <Telegram size={24}/>
             <Viber size={24}/>
             <WhatsUp size={24}/>
-            <a className='ml-2'>89127532529</a>
+            <a className='ml-2' href="tel:+79124693676">+79124693676</a>
         </div>
     );
 }

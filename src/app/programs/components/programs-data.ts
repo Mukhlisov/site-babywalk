@@ -7,8 +7,8 @@ export interface ProgramsData {
 
 export const programsData: ProgramsData[] = [
     {
-        entry : 'Проект «Патронаж»',
-        alt : 'Patronage project',
+        entry : 'Функциональная реабилитация',
+        alt : 'Functional rehabilitation',
         src : '/home-visiting.jpg',
         link : '/programs/patronage'
     },

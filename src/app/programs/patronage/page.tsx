@@ -2,7 +2,8 @@
 import {
     ImageGallery,
     ImagesPC_Main,
-    ListHomeVisiting, ProgramEntry,
+    Principles,
+    ProgramEntry,
     VideoGallery
 } from "@/app/programs/patronage/components/patronage";
 import Title from "@/app/programs/components/program-title";
@@ -11,13 +12,17 @@ import NewsFeed from "@/extra/components/news/news-feed";
 export default function Page() {
     return (
         <div>
-            <Title title="Проект «Патронаж»"/>
+            <Title title="Функциональная реабилитация"/>
             <div className="flex flex-row flex-wrap gap-x-4 md:gap-x-12 px-2 my-8">
                 <div className={"flex flex-col gap-4 xl:basis-3/5"}>
-                    <ListHomeVisiting/>
                     <ProgramEntry/>
                 </div>
                 <ImagesPC_Main/>
+            </div>
+            <div className="px-2 mt-10">
+                <div className="py-4 p-4 bg-zinc-100 shadow-lg rounded-lg">
+                    <Principles/>
+                </div>
             </div>
             <div className="px-2 mt-10">
                 <div className="py-4 p-4 bg-zinc-100 shadow-lg rounded-lg">

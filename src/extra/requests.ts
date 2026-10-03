@@ -26,6 +26,7 @@ export type News = {
     creationTime: number;
     updateTime: number;
     authorId: string;
+    isEmbedded: boolean;
 };
 
 export type NewsDto = {
@@ -36,6 +37,7 @@ export type NewsDto = {
     creationTime: number;
     updateTime: number;
     authorId: string;
+    isEmbedded: boolean;
     body: string;
     attachmentsUris: string[];
 };
@@ -99,6 +101,16 @@ export async function sendGetNewsByProgramRequest(
     );
 
     return handleResponse<News[]>(response);
+}
+
+export async function sendGetEmbeddedNewsRequest(program: string): Promise<NewsDto[]> {
+    const response = await fetch(`${getApiBase()}/news/${encodeURIComponent(program)}/embedded`, {
+        method: "GET",
+        headers: getJsonHeaders(),
+        cache: "no-store",
+    });
+
+    return handleResponse<NewsDto[]>(response);
 }
 
 export function parseEditorJsBody(body: string): EditorJsOutput {

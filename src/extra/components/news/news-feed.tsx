@@ -101,7 +101,6 @@ export default function NewsFeed({ program }: NewsFeedProps) {
     return (
         <section className="px-2 my-8">
             <div className="py-4 p-4 bg-zinc-100 shadow-lg rounded-lg">
-                <h3 className="text-2xl md:text-3xl mb-6">Новости</h3>
 
                 {isLoading && (
                     <p className="text-zinc-600">Загрузка новостей...</p>

@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
-import EditorJsRenderer from "@/extra/components/news/editor-js-renderer";
-import NewsAttachments from "@/extra/components/news/news-attachments";
-import { parseEditorJsBody, sendGetNewsByIdRequest } from "@/extra/requests";
+import NewsContent from "@/extra/components/news/news-content";
+import { sendGetNewsByIdRequest } from "@/extra/requests";
 
 type NewsPageProps = {
     params: Promise<{ newsId: string }>;
@@ -17,7 +16,6 @@ export default async function NewsPage({ params }: NewsPageProps) {
         notFound();
     }
 
-    const editorData = parseEditorJsBody(news.body);
     const programPath = `/programs/${news.program}`;
 
     return (
@@ -35,13 +33,7 @@ export default async function NewsPage({ params }: NewsPageProps) {
                     {news.title}
                 </h1>
 
-                <EditorJsRenderer data={editorData} />
-
-                {news.attachmentsUris.length > 0 && (
-                    <div className="mt-8">
-                        <NewsAttachments attachmentsUris={news.attachmentsUris} />
-                    </div>
-                )}
+                <NewsContent news={news} />
             </div>
         </article>
     );

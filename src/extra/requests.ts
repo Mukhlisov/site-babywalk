@@ -9,7 +9,7 @@ function normalizeApiBase(rawUrl: string): string {
 function getApiBase(): string {
     if (typeof window === "undefined") {
         const internalUrl =
-            process.env.API_INTERNAL_URL ?? "http://news-feed:8080/api/v1";
+            process.env.API_INTERNAL_URL ?? "http://localhost:5000/api/v1";
         return normalizeApiBase(internalUrl);
     }
 

@@ -101,8 +101,61 @@ function MoreImagesPlaceholder({ previewImage, hiddenCount, maxTileHeightClass, 
     );
 }
 
+function getUniformGridClass(count: number) {
+    if (count === 1) return "grid-cols-1";
+    if (count === 2) return "grid-cols-2";
+    return "grid-cols-2 sm:grid-cols-3";
+}
+
+function UniformTile({ image, index, onOpen }: Pick<GalleryTileProps, "image" | "index" | "onOpen">) {
+    return (
+        <button
+            type="button"
+            onClick={() => onOpen(index)}
+            title="Открыть галерею"
+            className="block aspect-4/3 w-full cursor-pointer overflow-hidden rounded-sm shadow-md transition hover:opacity-90"
+        >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+                src={image.src}
+                alt={image.alt ?? `Изображение ${index + 1}`}
+                className="h-full w-full object-cover"
+                loading="lazy"
+            />
+        </button>
+    );
+}
+
+function UniformMorePlaceholder({ previewImage, hiddenCount, onOpen }: Omit<MoreImagesPlaceholderProps, "maxTileHeightClass">) {
+    return (
+        <button
+            type="button"
+            onClick={onOpen}
+            title="Открыть все изображения"
+            className="relative block aspect-4/3 w-full cursor-pointer overflow-hidden rounded-sm shadow-md transition hover:opacity-90"
+        >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+                src={previewImage.src}
+                alt=""
+                aria-hidden
+                className="absolute inset-0 h-full w-full object-cover blur-sm scale-110"
+                loading="lazy"
+            />
+            <div className="absolute inset-0 bg-zinc-950/65" />
+            <div className="relative flex h-full flex-col items-center justify-center gap-1 p-4 text-white">
+                <Images size={32} strokeWidth={1.5} />
+                <span className="text-2xl font-bold">+{hiddenCount}</span>
+                <span className="text-sm text-zinc-200">ещё фото</span>
+            </div>
+        </button>
+    );
+}
+
 export type ImageGalleryGridProps = {
     images: GalleryImage[];
+    /** "masonry" — колонки по естественной высоте; "uniform" — ровная сетка одинаковых прямоугольников. */
+    layout?: "masonry" | "uniform";
     visibleLimit?: number;
     maxTileHeightClass?: string;
     ariaLabel?: string;
@@ -111,6 +164,7 @@ export type ImageGalleryGridProps = {
 export default function ImageGalleryGrid({
     images,
     visibleLimit,
+    layout = "masonry",
     maxTileHeightClass = "max-h-[430px] md:max-h-[720px]",
     ariaLabel,
 }: ImageGalleryGridProps) {
@@ -136,29 +190,49 @@ export default function ImageGalleryGrid({
 
     return (
         <>
-            <Masonry
-                breakpointCols={getBreakpointColumns(masonryItemCount)}
-                className="flex w-auto gap-3"
-                columnClassName="flex flex-col gap-3"
-            >
-                {visibleImages.map((image, index) => (
-                    <GalleryTile
-                        key={`${image.src}-${index}`}
-                        image={image}
-                        index={index}
-                        maxTileHeightClass={maxTileHeightClass}
-                        onOpen={openGallery}
-                    />
-                ))}
-                {hasOverflow && (
-                    <MoreImagesPlaceholder
-                        previewImage={images[limit - 1]}
-                        hiddenCount={hiddenCount}
-                        maxTileHeightClass={maxTileHeightClass}
-                        onOpen={openGalleryFromPlaceholder}
-                    />
-                )}
-            </Masonry>
+            {layout === "uniform" ? (
+                <div className={`grid gap-3 ${getUniformGridClass(masonryItemCount)}`}>
+                    {visibleImages.map((image, index) => (
+                        <UniformTile
+                            key={`${image.src}-${index}`}
+                            image={image}
+                            index={index}
+                            onOpen={openGallery}
+                        />
+                    ))}
+                    {hasOverflow && (
+                        <UniformMorePlaceholder
+                            previewImage={images[limit - 1]}
+                            hiddenCount={hiddenCount}
+                            onOpen={openGalleryFromPlaceholder}
+                        />
+                    )}
+                </div>
+            ) : (
+                <Masonry
+                    breakpointCols={getBreakpointColumns(masonryItemCount)}
+                    className="flex w-auto gap-3"
+                    columnClassName="flex flex-col gap-3"
+                >
+                    {visibleImages.map((image, index) => (
+                        <GalleryTile
+                            key={`${image.src}-${index}`}
+                            image={image}
+                            index={index}
+                            maxTileHeightClass={maxTileHeightClass}
+                            onOpen={openGallery}
+                        />
+                    ))}
+                    {hasOverflow && (
+                        <MoreImagesPlaceholder
+                            previewImage={images[limit - 1]}
+                            hiddenCount={hiddenCount}
+                            maxTileHeightClass={maxTileHeightClass}
+                            onOpen={openGalleryFromPlaceholder}
+                        />
+                    )}
+                </Masonry>
+            )}
 
             <ImageGalleryModal
                 images={images}
